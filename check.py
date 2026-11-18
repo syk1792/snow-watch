@@ -33,6 +33,54 @@ def retry(fn, tries=3):
             time.sleep(5 * (i + 1))
 
 
+API_KEY = os.environ.get("YT_API_KEY", "").strip()
+
+
+def api_round(cams):
+    """유튜브 공식 API(videos.list)로 50개씩 한꺼번에 묻는다. 요청 1번에 쿼터 1."""
+    import urllib.parse
+    done = 0
+    for i in range(0, len(cams), 50):
+        part = cams[i:i + 50]
+        ids = ",".join(c["videoId"] for c in part)
+        url = ("https://www.googleapis.com/youtube/v3/videos?part=snippet,status,liveStreamingDetails&id="
+               + ids + "&key=" + urllib.parse.quote(API_KEY))
+        try:
+            _, body, _ = sv.http_get(url, timeout=30)
+        except Exception as e:
+            log("   유튜브 API 실패:", str(e).replace(API_KEY, "***")[:120])
+            continue
+        items = {v["id"]: v for v in json.loads(body).get("items", [])}
+        at = sv.now_iso()
+        for cam in part:
+            v = items.get(cam["videoId"])
+            if not v:
+                res = {"videoId": cam["videoId"], "status": "unavailable", "title": "", "reason": "영상을 찾을 수 없음"}
+            else:
+                sn, lsd, stt = v.get("snippet", {}), v.get("liveStreamingDetails", {}), v.get("status", {})
+                kind = sn.get("liveBroadcastContent")
+                title = sn.get("title", "")
+                if kind == "live":
+                    status = "live"
+                elif kind == "upcoming":
+                    status = "upcoming"
+                elif lsd.get("actualEndTime"):
+                    status = "ended"
+                else:
+                    status = "not_live"
+                res = {"videoId": cam["videoId"], "status": status, "title": title,
+                       "author": sn.get("channelTitle"), "channelId": sn.get("channelId"),
+                       "startTimestamp": lsd.get("actualStartTime"), "endTimestamp": lsd.get("actualEndTime"),
+                       "watching": lsd.get("concurrentViewers"), "playableInEmbed": stt.get("embeddable"),
+                       "reason": None, "suspectWords": [w for w in sv.SUSPECT_WORDS if w in title.lower()]}
+            prev = sv.S["checks"].get(cam["id"], {})
+            if prev.get("videoId") != res["videoId"]:
+                sv.S["thumbs"].pop(cam["id"], None)
+            sv.S["checks"][cam["id"]] = {**res, "camId": cam["id"], "checkedAt": at}
+            done += 1
+    return done
+
+
 def youtube_round(cams):
     done = 0
     for cam in cams:
@@ -102,8 +150,15 @@ def main():
     yt = [c for c in cams if c.get("type", "youtube") == "youtube" and c.get("videoId")]
     log(f"캠 {len(cams)}개 (유튜브 {len(yt)}개)")
 
+    # 예전에 유튜브 봇 확인 화면에 막혀서 잘못 기록된 결과는 지운다
+    for k in [k for k, v in sv.S["checks"].items() if "not a bot" in (v.get("reason") or "")]:
+        del sv.S["checks"][k]
     log("1) 유튜브 라이브 확인")
-    n = youtube_round(yt)
+    if API_KEY:
+        n = api_round(yt)
+    else:
+        log("   YT_API_KEY 가 없어서 유튜브 확인은 건너뛰어요 (GitHub 서버에서는 유튜브 페이지를 직접 읽을 수 없어요)")
+        n = 0 if os.environ.get("GITHUB_ACTIONS") else youtube_round(yt)
     log(f"   {n}개 확인")
 
     log("2) 날씨 예보")

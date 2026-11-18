@@ -189,6 +189,8 @@ def inspect_video(video_id):
     pr = extract_json(html, "ytInitialPlayerResponse") or {}
     vd = pr.get("videoDetails", {})
     ps = pr.get("playabilityStatus", {})
+    if "not a bot" in (ps.get("reason") or ""):   # 유튜브의 봇 확인 화면: 방송 상태를 알 수 없다
+        raise RateLimited()
     lbd = (pr.get("microformat", {}).get("playerMicroformatRenderer", {})
            .get("liveBroadcastDetails", {}))
     watching = None
@@ -351,6 +353,12 @@ def yt_worker():
 # ---- 날씨: 예보 모델 + 공항 관측 ---------------------------------------------
 def update_weather():
     cams = [c for c in load_cams() if c.get("lat") is not None and c.get("lon") is not None]
+    for i in range(0, len(cams), 20):
+        _update_weather_chunk(cams[i:i + 20])
+        time.sleep(1)
+
+
+def _update_weather_chunk(cams):
     if not cams:
         return
     url = ("https://api.open-meteo.com/v1/forecast?latitude=" + ",".join(str(c["lat"]) for c in cams)
