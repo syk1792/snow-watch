@@ -48,7 +48,13 @@ def api_round(cams):
         try:
             _, body, _ = sv.http_get(url, timeout=30)
         except Exception as e:
-            log("   유튜브 API 실패:", str(e).replace(API_KEY, "***")[:120])
+            detail = ""
+            try:
+                detail = e.read().decode("utf-8", "replace")
+            except Exception:
+                pass
+            msg = (str(e) + " " + detail).replace(API_KEY, "***").replace(chr(10), " ")
+            log("   유튜브 API 실패:", msg[:400], "| 키 길이", len(API_KEY), "| 영상 ID 수", len(part))
             continue
         items = {v["id"]: v for v in json.loads(body).get("items", [])}
         at = sv.now_iso()
