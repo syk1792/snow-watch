@@ -1,0 +1,4 @@
+data/thumbs/
+data/*.jsonl
+__pycache__/
+*.tmp

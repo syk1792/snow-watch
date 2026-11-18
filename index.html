@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNOW WATCH 관제실</title>
+<style>
+  :root {
+    --bg: #070b12;
+    --panel: #0d141f;
+    --panel-2: #121c2a;
+    --line: #1f2c3d;
+    --text: #e2ebf3;
+    --dim: #8094a8;
+    --pine: #35c47c;
+    --berry: #f05567;
+    --gold: #f3c669;
+    --frost: #a4deff;
+    --off: #56677a;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --sans: "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scrollbar-color: var(--line) var(--bg); }
+  body {
+    margin: 0; color: var(--text); font-family: var(--sans); font-size: 14px; line-height: 1.5;
+    background:
+      radial-gradient(55% 38% at 12% -8%, rgba(53, 196, 124, .11), transparent 70%),
+      radial-gradient(50% 34% at 92% -10%, rgba(240, 85, 103, .10), transparent 70%),
+      radial-gradient(80% 50% at 50% -20%, #10263b, transparent 70%),
+      var(--bg);
+    background-attachment: fixed;
+  }
+  #snowfx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+  body > :where(:not(#snowfx):not(dialog)) { position: relative; z-index: 1; }
+  button {
+    font: inherit; color: var(--text); background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 6px; padding: 6px 12px; cursor: pointer;
+  }
+  button:hover { border-color: var(--frost); }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  a { color: var(--frost); }
+
+  /* ---- 머리띠 ---- */
+  header.top {
+    position: sticky; top: 0; z-index: 6 !important;
+    background: rgba(7, 11, 18, .93); backdrop-filter: blur(6px);
+  }
+  .top-row {
+    display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; justify-content: space-between;
+    padding: 12px 20px 10px;
+  }
+  @media (max-width: 700px), (max-height: 520px) { header.top { position: relative !important; } }
+  .brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .brand h1 {
+    margin: 0; font-family: var(--mono); font-size: 21px; letter-spacing: .14em; color: var(--frost);
+    text-shadow: 0 0 18px rgba(164, 222, 255, .35);
+  }
+  .brand .sub { color: var(--text); }
+  .brand .tag { font-size: 11px; color: var(--dim); border: 1px solid var(--line); border-radius: 4px; padding: 0 6px; }
+  .meta { display: flex; gap: 12px; align-items: center; font-family: var(--mono); font-size: 13px; color: var(--dim); }
+  .dday { color: #1a1206; background: var(--gold); border-radius: 999px; padding: 1px 10px; font-weight: 700; font-family: var(--sans); }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .seg button { border: 0; border-radius: 0; background: transparent; color: var(--dim); }
+  .seg button[aria-pressed="true"] { background: var(--panel-2); color: var(--gold); }
+  button[aria-pressed="true"].toggle { border-color: var(--gold); color: var(--gold); }
+
+  /* 꼬마전구 줄 */
+  .lights { position: relative; height: 16px; border-top: 1px solid #24354a; overflow: hidden; }
+  .lights::before, .lights::after { content: ""; position: absolute; inset: 0; background-repeat: repeat-x; background-size: 112px 16px; }
+  .lights::before {
+    background-image:
+      radial-gradient(circle at 14px 6px, var(--gold) 0 2.6px, transparent 3.4px),
+      radial-gradient(circle at 14px 6px, rgba(243, 198, 105, .28) 0 8px, transparent 9px),
+      radial-gradient(circle at 70px 7px, var(--pine) 0 2.6px, transparent 3.4px),
+      radial-gradient(circle at 70px 7px, rgba(53, 196, 124, .28) 0 8px, transparent 9px);
+    animation: twinkle 3.2s ease-in-out infinite;
+  }
+  .lights::after {
+    background-image:
+      radial-gradient(circle at 42px 8px, var(--berry) 0 2.6px, transparent 3.4px),
+      radial-gradient(circle at 42px 8px, rgba(240, 85, 103, .28) 0 8px, transparent 9px),
+      radial-gradient(circle at 98px 6px, var(--frost) 0 2.6px, transparent 3.4px),
+      radial-gradient(circle at 98px 6px, rgba(164, 222, 255, .28) 0 8px, transparent 9px);
+    animation: twinkle 3.2s ease-in-out -1.6s infinite;
+  }
+  @keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+  /* 흐르는 소식 띠 */
+  .ticker { overflow: hidden; border-bottom: 1px solid var(--line); background: rgba(13, 20, 31, .8); font-size: 13px; white-space: nowrap; }
+  .ticker-track { display: inline-flex; gap: 0; padding: 6px 0; animation: marquee linear infinite; animation-duration: var(--dur, 60s); }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .ticker-track > span { padding: 0 22px; border-right: 1px solid var(--line); }
+  .ticker-track b { color: var(--gold); font-weight: 700; }
+  .ticker-track .snow { color: var(--frost); }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1px; background: var(--line); border-bottom: 1px solid var(--line); }
+  .summary div { background: var(--panel); padding: 9px 16px; }
+  .summary b { display: block; font-family: var(--mono); font-size: 22px; }
+  .summary span { font-size: 12px; color: var(--dim); }
+
+  .bar2 { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 12px 20px 0; }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filters button { border-radius: 999px; padding: 3px 12px; font-size: 13px; color: var(--dim); }
+  .filters button[aria-pressed="true"] { color: #06131f; background: var(--frost); border-color: var(--frost); font-weight: 700; }
+  .notice { color: var(--gold); font-size: 13px; margin-left: auto; }
+
+  /* ---- 모니터 ---- */
+  .grid { display: grid; gap: 16px 14px; padding: 16px 20px 8px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+  .mon {
+    position: relative; background: linear-gradient(180deg, #111b29, var(--panel)); border: 1px solid var(--line);
+    border-radius: 10px; display: flex; flex-direction: column; min-width: 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+  }
+  .mon[hidden] { display: none; }
+  .mon.s-confirmed { border-color: var(--frost); animation: pulse 2.4s ease-in-out infinite; }
+  .mon.s-likely { border-color: rgba(164, 222, 255, .55); }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 3px rgba(164, 222, 255, .28), 0 0 26px rgba(164, 222, 255, .32); } }
+  /* 눈이 확인된 모니터 위에 눈이 소복이 쌓인다 */
+  .mon.s-confirmed::before {
+    content: ""; position: absolute; left: 10px; right: 10px; top: -7px; height: 12px; z-index: 2; pointer-events: none;
+    background: radial-gradient(ellipse 16px 11px at 50% 100%, #fff 0 96%, transparent 100%) 0 0 / 26px 12px repeat-x;
+    filter: drop-shadow(0 1px 0 rgba(164, 222, 255, .7));
+  }
+  .mon-head { display: flex; align-items: center; gap: 8px; padding: 7px 8px 7px 12px; font-size: 13px; min-width: 0; }
+  .ch { font-family: var(--mono); color: var(--dim); }
+  .mon-head .name { font-weight: 700; white-space: nowrap; }
+  .mon-head .place { color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
+  .led { width: 9px; height: 9px; border-radius: 50%; background: var(--off); flex: none; }
+  .led.ok { background: var(--pine); box-shadow: 0 0 8px var(--pine); }
+  .led.bad { background: var(--berry); box-shadow: 0 0 8px var(--berry); }
+  .led.warn { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+  .pin { background: none; border: 0; padding: 0 4px; font-size: 16px; line-height: 1; color: var(--off); }
+  .pin[aria-pressed="true"] { color: var(--gold); text-shadow: 0 0 8px rgba(243, 198, 105, .6); }
+
+  .screen { position: relative; aspect-ratio: 16 / 9; background: #000; overflow: hidden; margin: 0 6px; border-radius: 4px; box-shadow: inset 0 0 0 1px #000, 0 0 0 1px #223145; }
+  .media, .overlay { position: absolute; inset: 0; }
+  .media img, .media iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+  .media img.fixed { filter: saturate(.4) brightness(.55); }
+  .osd.note {
+    left: 50%; top: 50%; transform: translate(-50%, -50%); white-space: nowrap; font-family: var(--sans);
+    background: rgba(0, 0, 0, .62); border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; padding: 2px 12px; text-shadow: none;
+  }
+  .overlay { pointer-events: none; z-index: 2; }
+  .overlay::before, .overlay::after { content: ""; position: absolute; left: 0; right: 0; height: 34%; }
+  .overlay::before { top: 0; background: linear-gradient(rgba(0, 0, 0, .55), transparent); }
+  .overlay::after { bottom: 0; background: linear-gradient(transparent, rgba(0, 0, 0, .6)); }
+  .playing .overlay::before, .playing .overlay::after { display: none; }
+  .osd { position: absolute; font-family: var(--mono); font-size: 12px; color: #fff; text-shadow: 0 0 3px #000, 0 0 6px #000; z-index: 1; }
+  .osd.tl { left: 8px; top: 6px; }
+  .osd.bl { left: 8px; bottom: 7px; font-size: 12.5px; }
+  .osd .rec { color: var(--berry); }
+  .osd.tr { right: 8px; top: 6px; display: grid; gap: 4px; justify-items: end; }
+  .badge { font-size: 12px; border-radius: 4px; padding: 1px 7px; border: 1px solid; background: rgba(8, 30, 52, .88); text-shadow: none; }
+  .badge.confirmed { color: #04121d; background: var(--frost); border-color: #fff; font-weight: 700; animation: blink 1.2s steps(2) infinite; }
+  .badge.likely { color: var(--frost); border-color: var(--frost); }
+  .badge.disputed { color: var(--gold); border-color: var(--gold); }
+  .badge.cover { color: #fff; border-color: rgba(255, 255, 255, .5); background: rgba(0, 0, 0, .55); }
+  @keyframes blink { 50% { opacity: .55; } }
+  .play {
+    position: absolute; right: 8px; bottom: 7px; z-index: 1; pointer-events: auto; background: rgba(0, 0, 0, .65);
+    border: 1px solid rgba(255, 255, 255, .3); border-radius: 6px; font-size: 12px; padding: 3px 10px; color: #fff; text-decoration: none;
+  }
+  .nosignal {
+    position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--mono); letter-spacing: .2em; color: #ddd;
+    background: repeating-linear-gradient(0deg, rgba(255, 255, 255, .06) 0 1px, transparent 1px 3px), radial-gradient(circle, #2a2f36, #07090c);
+    animation: flick .25s steps(2) infinite;
+  }
+  @keyframes flick { 50% { opacity: .85; } }
+  .sitepanel { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 0 12px; background: repeating-linear-gradient(135deg, #0c1622 0 12px, #0a121c 12px 24px); }
+  .sitepanel.clear { background: none; }
+  .sitebtn { pointer-events: auto; color: var(--text); text-decoration: none; background: #14324b; border: 1px solid #25618f; border-radius: 6px; padding: 8px 14px; font-size: 13px; }
+  a.sitebtn:hover { border-color: var(--frost); }
+  .flakes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 3; }
+  .flakes i { position: absolute; top: -8px; border-radius: 50%; background: #fff; opacity: .85; animation: fall linear infinite; }
+  @keyframes fall { to { transform: translate(18px, 240px); } }
+
+  /* 눈 대조 줄: 예보 · 관측 · 화면 */
+  .cross { display: flex; flex-wrap: wrap; gap: 4px 6px; padding: 8px 10px 9px; font-size: 12px; min-height: 37px; align-content: center; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line); border-radius: 999px; padding: 0 8px 0 6px; color: var(--dim); white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+  .chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--off); flex: none; }
+  .chip b { font-weight: 400; color: var(--dim); }
+  .chip.on { color: var(--frost); border-color: rgba(164, 222, 255, .6); background: rgba(164, 222, 255, .08); }
+  .chip.on i { background: var(--frost); box-shadow: 0 0 6px var(--frost); }
+  .chip.na i { background: none; border: 1px solid var(--off); }
+  .chip.warm { color: var(--gold); border-color: rgba(243, 198, 105, .5); }
+  .chip.warm i { background: var(--gold); }
+
+  .info { padding: 9px 12px 10px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; font-size: 13px; border-top: 1px dashed var(--line); }
+  .row { display: flex; gap: 8px; }
+  .row .k { color: var(--dim); width: 64px; flex: none; }
+  .row .v { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .v.ok { color: var(--pine); } .v.bad { color: var(--berry); } .v.warn { color: var(--gold); }
+  .mono { font-family: var(--mono); }
+  .dimtx { color: var(--dim); }
+  .ellip { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .flags { display: grid; gap: 4px; margin-top: 4px; }
+  .flag { font-size: 12px; padding: 4px 8px; border-radius: 4px; background: rgba(243, 198, 105, .09); color: var(--gold); border: 1px solid rgba(243, 198, 105, .3); }
+  .flag.red { background: rgba(240, 85, 103, .1); color: var(--berry); border-color: rgba(240, 85, 103, .35); }
+  .flag.info { background: rgba(164, 222, 255, .05); color: var(--dim); border-color: var(--line); }
+  .foot { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; padding: 8px 12px 12px; border-top: 1px dashed var(--line); margin-top: auto; }
+  .foot button { font-size: 12px; padding: 3px 8px; }
+  .foot button.on-real { border-color: var(--pine); color: var(--pine); }
+  .foot button.on-fake { border-color: var(--berry); color: var(--berry); }
+  .foot button.on-eye { border-color: var(--frost); color: var(--frost); }
+  .foot .sep { flex-basis: 100%; height: 0; }
+  .foot .links { margin-left: auto; font-size: 12px; display: flex; gap: 10px; align-items: center; }
+  .foot .links button { background: none; border: 0; color: var(--dim); padding: 0; }
+  .foot .lbl { font-size: 12px; color: var(--dim); }
+
+  /* 관제 모드: 모니터만 깔끔하게 */
+  body[data-view="wall"] .info, body[data-view="wall"] .foot, body[data-view="wall"] .only-detail { display: none; }
+  body[data-view="wall"] .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); }
+
+  section.block { padding: 8px 20px 20px; }
+  section.block h2 { font-size: 15px; margin: 8px 0; }
+  section.block h2 small { color: var(--dim); font-weight: 400; }
+  .events { list-style: none; margin: 0; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+  .events li { padding: 7px 12px; border-bottom: 1px solid var(--line); display: flex; gap: 10px; flex-wrap: wrap; font-size: 13px; }
+  .events li:last-child { border-bottom: 0; }
+  .events time { font-family: var(--mono); color: var(--dim); }
+  .howto { margin: 0 20px 20px; padding: 12px 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; color: var(--dim); font-size: 13px; }
+  .howto summary { cursor: pointer; color: var(--text); }
+  .howto ol { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+  .howto b { color: var(--text); }
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 620px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--dim); font-weight: 400; background: var(--panel); }
+  td.num { font-family: var(--mono); }
+  .meter { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; width: 80px; display: inline-block; vertical-align: middle; margin-right: 6px; }
+  .meter i { display: block; height: 100%; background: var(--pine); }
+
+  dialog { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 10px; width: min(92vw, 440px); }
+  dialog::backdrop { background: rgba(0, 0, 0, .6); }
+  dialog label { display: block; margin: 10px 0 4px; font-size: 13px; color: var(--dim); }
+  dialog input { width: 100%; font: inherit; padding: 8px; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 6px; }
+  dialog .btns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+  .msg { font-size: 13px; color: var(--gold); min-height: 1.5em; margin-top: 8px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lights::before, .lights::after, .mon.s-confirmed, .badge.confirmed, .nosignal, .flakes i { animation: none; }
+    .ticker-track { animation: none; white-space: normal; flex-wrap: wrap; }
+  }
+</style>
+<style>[data-view-btn], .seg, #btnPreview, #btnAdd, #addDlg, .only-detail { display: none !important; }</style>
+</head>
+<body data-view="wall">
+<canvas id="snowfx" aria-hidden="true"></canvas>
+
+<header class="top">
+  <div class="top-row">
+    <div class="brand">
+      <h1>❄ SNOW WATCH</h1>
+      <span class="sub">크리스마스 마켓 눈 관제실</span>
+      <span class="tag">LIVE · 30분마다 갱신</span>
+    </div>
+    <div class="meta"><span class="dday" id="dday"></span><span id="clock"></span></div>
+    <div class="actions">
+      <span class="seg" role="group" aria-label="보기 방식">
+        <button data-view-btn="wall" aria-pressed="true">관제 모드</button>
+        <button data-view-btn="detail" aria-pressed="false">검증 모드</button>
+      </span>
+      <button class="toggle" id="btnFx" aria-pressed="true">배경 눈</button>
+      <button class="toggle" id="btnPreview" aria-pressed="false" title="눈이 확인됐을 때의 연출을 미리 봐요">눈 연출 미리보기</button>
+      <button id="btnAdd">+ 캠 추가</button>
+    </div>
+  </div>
+  <div class="lights" aria-hidden="true"></div>
+</header>
+
+<div class="ticker" aria-label="현재 소식"><div class="ticker-track" id="ticker"></div></div>
+<div class="summary" id="summary"></div>
+<div class="bar2">
+  <div class="filters" id="filters" role="group" aria-label="모니터 고르기"></div>
+  <button id="btnPlayPins" title="별(★)로 고른 메인 캠의 라이브 영상을 한꺼번에 켜요 (최대 9대)">★ 메인 영상 켜기</button>
+  <span class="notice" id="notice"></span>
+</div>
+
+<main class="grid" id="grid"></main>
+
+<section class="block">
+  <h2>❄ 눈 일지 <small>· 눈 판정이 바뀔 때마다 남아요</small></h2>
+  <ul class="events" id="events"></ul>
+</section>
+
+<details class="howto">
+  <summary>이 관제실은 이렇게 확인해요 (펼치기)</summary>
+  <ol>
+    <li><b>실시간 여부</b>: 유튜브가 알려주는 '지금 방송 중' 값으로 확인해요. 캠마다 30분에 한 번, 한 번에 하나씩 천천히 물어서 유튜브에 부담을 주지 않아요. 유튜브가 확인을 막으면(429) 1시간 쉬고, 그동안은 지난 결과를 보여줘요.</li>
+    <li><b>눈 대조 (세 가지 근거)</b>: ① <b>예보</b>는 Open-Meteo 날씨 모델이 계산한 현재 날씨예요. ② <b>관측</b>은 가장 가까운 공항에서 실제로 잰 날씨(METAR)예요. 60km 안, 90분 안의 관측만 판정에 써요. ③ <b>화면</b>은 5분 간격의 라이브 화면 두 장을 비교해서 '새로 생긴 작은 밝은 점'이 화면 전체에 퍼졌는지 봐요.</li>
+    <li><b>눈 판정</b>: 두 가지 이상이 눈이라고 하거나 사람이 직접 확인하면 <b>❄ SNOW · 확인</b>, 예보나 관측 하나만이면 <b>❄ SNOW · 예보/관측</b>, 예보는 눈인데 공항은 비라고 하면 <b>엇갈림</b>으로 표시해요.</li>
+    <li><b>화면에서 눈발을 읽는 기능은 아직 쓰지 않아요.</b> 실제 눈 오는 화면으로 검증하지 못해서, 지금은 예보와 공항 관측 두 가지로만 눈을 표시해요.</li>
+    <li><b>미리보기는 '지금 화면'이 아닐 수 있어요.</b> 모니터에 처음 보이는 그림은 유튜브가 주는 미리보기예요. 5분마다 바뀌는 캠도 있지만, 유튜브가 갱신하지 않아 몇 시간 전 화면이 걸려 있거나 채널이 홍보 사진을 걸어 둔 캠도 많아요. 바뀌는 것을 확인한 캠만 지금 화면으로 믿고, 나머지는 어둡게 하고 <b>'미리보기가 지금 화면이 아니에요'</b>라고 표시해요. 방송 자체는 실시간이니 ▶ 영상을 켜면 진짜 지금 모습이 나와요.</li>
+    <li><b>재방송 의심</b>: 제목의 수상한 단어와 방송 시작 시점을 확인해서 녹화본으로 보이는 방송은 목록에서 뺐어요.</li>
+    <li><b>★ 추천</b>: 지금 보기 좋은 광장 캠은 맨 앞에 모아 뒀어요.</li>
+      </ol>
+</details>
+
+<section class="block only-detail">
+  <h2>누적 검사 기록 <small>· 며칠 동안 켜 두면 안정적인 캠이 보여요</small></h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>CH</th><th>도시</th><th>검사</th><th>라이브 비율</th><th>마지막 라이브</th><th>내 판정</th><th>블로그 후보</th></tr></thead>
+    <tbody id="logBody"></tbody>
+  </table></div>
+</section>
+
+<dialog id="addDlg">
+  <form method="dialog" id="addForm">
+    <h3 style="margin:0">캠 추가</h3>
+    <label for="fUrl">유튜브 주소 또는 영상 ID</label>
+    <input id="fUrl" name="url" required placeholder="https://www.youtube.com/watch?v=...">
+    <label for="fCity">도시 이름 (날씨 좌표를 자동으로 찾아요)</label>
+    <input id="fCity" name="city" required placeholder="예: Strasbourg">
+    <label for="fPlace">장소 설명</label>
+    <input id="fPlace" name="place" placeholder="예: 클레베르 광장">
+    <div class="msg" id="addMsg"></div>
+    <div class="btns">
+      <button value="cancel" formnovalidate>취소</button>
+      <button id="addOk" value="ok">추가하고 확인</button>
+    </div>
+  </form>
+</dialog>
+
+<footer class="srcs" style="max-width:1500px;margin:0 auto;padding:14px 16px 40px;color:#9fb0c3;font-size:12px;line-height:1.7">
+  방송 영상은 각 채널의 유튜브 라이브이고, 퍼가기가 허용된 영상만 이 페이지에서 재생돼요.
+  날씨 예보는 <a href="https://open-meteo.com/" target="_blank" rel="noopener" style="color:inherit">Open-Meteo.com</a>,
+  공항 실측은 <a href="https://aviationweather.gov/" target="_blank" rel="noopener" style="color:inherit">NOAA Aviation Weather</a>(METAR) 자료예요.
+  이 화면은 30분마다 자동으로 갱신돼요. 눈 표시는 예보·관측 기준이라 실제 화면과 다를 수 있어요.
+</footer>
+<script>
+const WX = {
+  0: "맑음", 1: "대체로 맑음", 2: "구름 조금", 3: "흐림", 45: "안개", 48: "서리 안개",
+  51: "약한 이슬비", 53: "이슬비", 55: "강한 이슬비", 56: "어는 이슬비", 57: "어는 이슬비",
+  61: "약한 비", 63: "비", 65: "강한 비", 66: "어는 비", 67: "어는 비",
+  71: "약한 눈", 73: "눈", 75: "폭설", 77: "싸락눈", 80: "소나기", 81: "소나기", 82: "강한 소나기",
+  85: "약한 소낙눈", 86: "강한 소낙눈", 95: "뇌우", 96: "우박 뇌우", 99: "우박 뇌우",
+};
+const FLAG = { FI: "🇫🇮", DE: "🇩🇪", BE: "🇧🇪", NL: "🇳🇱", CH: "🇨🇭", HU: "🇭🇺", SI: "🇸🇮", EE: "🇪🇪", IE: "🇮🇪", CA: "🇨🇦", US: "🇺🇸", JP: "🇯🇵", AT: "🇦🇹", FR: "🇫🇷", CZ: "🇨🇿", PL: "🇵🇱", GB: "🇬🇧", DK: "🇩🇰", NO: "🇳🇴", SE: "🇸🇪", IT: "🇮🇹", LV: "🇱🇻", LT: "🇱🇹", KR: "🇰🇷" };
+const STATUS = {
+  live: ["ok", "실시간 방송 중"],
+  ended: ["bad", "방송 끝남 (녹화본)"],
+  not_live: ["bad", "라이브 아님 (일반 영상)"],
+  upcoming: ["warn", "방송 예정"],
+  unavailable: ["bad", "재생 불가"],
+  error: ["warn", "아직 확인 못 함"],
+  unknown: ["warn", "판단 불가"],
+  fresh: ["ok", "최근 사진 확인"],
+  stale: ["bad", "사진 갱신 멈춤"],
+  link: ["warn", "사이트 전용 (자동 확인 불가)"],
+};
+const POLL_MS = 300000;
+
+let st = { cams: [], checks: {}, weather: {}, obs: {}, thumbs: {}, vision: {}, snow: {}, events: [], verdicts: {}, pins: [], stats: {}, blockedMin: 0 };
+let view = "wall", filter = "all", previewSnow = false, loaded = false;
+const playing = new Set();
+const cards = new Map();   // camId -> { el, html: {부분 이름: 마지막으로 그린 내용} }
+view = "wall";
+{ // 주소 뒤에 ?view=detail 이나 ?preview=1 을 붙여서 바로 열 수도 있다
+  const q = new URLSearchParams(location.search);
+  previewSnow = q.get("preview") === "1";
+}
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+async function api(path, body) {
+  if (path === "/api/state") path = "state.json?t=" + Date.now();
+  const r = await fetch(path, body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : {});
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || r.status);
+  return j;
+}
+
+/* ---------- 시간·숫자 표기 ---------- */
+const minAgo = iso => iso ? (Date.now() - new Date(iso).getTime()) / 6e4 : Infinity;
+function ago(iso) {
+  if (!iso) return "-";
+  const m = Math.round(minAgo(iso));
+  if (m < 1) return "방금";
+  if (m < 60) return `${m}분 전`;
+  if (m < 2880) return `${Math.round(m / 60)}시간 전`;
+  return `${Math.round(m / 1440)}일 전`;
+}
+function since(iso) {
+  if (!iso) return "-";
+  const h = minAgo(iso) / 60;
+  if (h < 1) return `${Math.max(1, Math.round(h * 60))}분 전 시작`;
+  if (h < 48) return `${Math.round(h)}시간째 연속`;
+  const d = h / 24;
+  if (d < 60) return `${Math.round(d)}일째 연속`;
+  if (d < 730) return `${Math.round(d / 30)}개월째 연속`;
+  return `${Math.floor(d / 365)}년째 연속`;
+}
+const localTime = w => w ? new Date(Date.now() + w.utcOffset * 1000).toISOString().slice(11, 16) : null;
+const temp = t => t == null ? "" : `${t < 0 ? "−" : ""}${Math.abs(t).toFixed(1)}°`;
+const chNo = cam => String(st.cams.indexOf(cam) + 1).padStart(2, "0");
+const kstStamp = iso => new Date(iso).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+
+/* ---------- 판단 ---------- */
+const snowOf = cam => previewSnow && cam.lat != null && !cam.relay
+  ? { ...(st.snow[cam.id] || {}), level: "confirmed", text: "미리보기예요 (실제 눈 아님)", preview: true }
+  : st.snow[cam.id] || { level: "none" };
+/* 미리보기가 '지금 화면'인지: live(바뀌는 것을 확인함) / fixed(오래됐거나 홍보 사진) / unknown(지켜보는 중) */
+function thumbState(cam) {
+  const th = st.thumbs[cam.id];
+  if (cam.customThumb) return "fixed";
+  let s = th?.state || "unknown";
+  if (s === "unknown") {   // 아직 지켜보는 중이라도 현지 낮/밤과 어긋나면 오래된 화면으로 본다
+    const w = st.weather[cam.id], v = st.vision[cam.id];
+    if (w && v && v.hash === th?.hash && ((!w.isDay && v.sky > 110) || (w.isDay && v.sky < 35))) s = "fixed";
+  }
+  return s;
+}
+const isFixedThumb = cam => thumbState(cam) === "fixed";
+const hasError = c => !!(c?.lastErrorAt && (!c.checkedAt || c.lastErrorAt > c.checkedAt));
+
+function flagsFor(cam) {
+  const c = st.checks[cam.id], w = st.weather[cam.id], v = st.vision[cam.id];
+  const out = [];
+  if (!c) return out;
+  if (cam.relay) out.push(["info", "여러 캠을 이어 붙인 릴레이 방송이라 도시별 눈 신호를 붙일 수 없어요. 블로그에는 원본 캠을 쓰는 게 좋아요"]);
+  if (cam.type === "snapshot") out.push(["info", "사진형 캠이라 수십 분 간격으로 갱신돼요. 블로그에 쓰려면 사이트 허락이 필요해요"]);
+  if (cam.type === "link") out.push(["info", "다른 사이트에서는 재생이 막혀 있어서 바로가기로만 볼 수 있어요"]);
+  if (isFixedThumb(cam) && c.status === "live") out.push(["info", "미리보기가 지금 화면이 아니에요 (유튜브가 갱신하지 않은 오래된 화면이거나 채널의 홍보 사진). 방송은 실시간이니 실제 모습은 영상을 켜서 확인하세요"]);
+  if (hasError(c)) out.push(["info", `방금 확인은 실패했어요 (${c.lastError}). 지난 결과를 보여주는 중이에요`]);
+  if (c.status === "stale") out.push(["red", `사진이 ${Math.round(minAgo(c.takenAt) / 60)}시간째 그대로예요 → 카메라 멈춤 의심`]);
+  if (c.status === "live" && c.playableInEmbed === false) out.push(["red", "퍼가기 막힘 → 블로그에 넣을 수 없어요"]);
+  if (c.suspectWords?.length) out.push(["", `제목에 '${c.suspectWords.join("', '")}' → 편집 영상 재송출 의심`]);
+  if (c.status === "live" && c.suspectWords?.length && minAgo(c.startTimestamp) < 7 * 1440) out.push(["", "최근 며칠 사이 새로 시작한 방송 + 의심 단어"]);
+  if (c.replacedFrom) out.push(["", `등록 영상(${c.replacedFrom})은 끝나서 같은 채널의 새 라이브로 바꿔 보여주는 중`]);
+  // 미리보기가 5분마다 바뀌는데도(=지금 방송 화면인데도) 현지 낮/밤과 어긋나면 녹화본을 틀고 있을 가능성이 높다
+  if (w && v && minAgo(v.at) < 30 && thumbState(cam) === "live" && (c.status === "live" || c.status === "fresh")) {
+    if (!w.isDay && v.sky > 110) out.push(["red", `현지는 밤인데 방송 화면의 하늘이 밝아요 (밝기 ${v.sky}) → 녹화본 의심`]);
+    if (w.isDay && v.sky < 35) out.push(["red", `현지는 낮인데 방송 화면의 하늘이 깜깜해요 (밝기 ${v.sky}) → 녹화본 의심`]);
+  }
+  return out;
+}
+const needsAttention = cam => {
+  const c = st.checks[cam.id];
+  return ["ended", "not_live", "unavailable", "stale"].includes(c?.status) || flagsFor(cam).some(([k]) => k !== "info");
+};
+const canPlay = cam => (cam.type || "youtube") === "youtube" && st.checks[cam.id]?.status === "live" && st.checks[cam.id]?.playableInEmbed !== false;
+const FILTERS = [
+  ["all", "전체", () => true],
+  ["pin", "★ 메인", cam => st.pins.includes(cam.id)],
+  ["square", "🎄 광장·마켓", cam => !!cam.square],
+  ["snow", "❄ 눈·적설", cam => { const s = snowOf(cam); return s.level !== "none" || !!s.cover; }],
+  ["play", "▶ 영상 가능", canPlay],
+];
+
+/* ---------- 모니터 한 대의 각 부분 ---------- */
+function headHTML(cam) {
+  const c = st.checks[cam.id];
+  const [cls, label] = c ? STATUS[c.status] || STATUS.unknown : ["", "확인 중"];
+  const pinned = st.pins.includes(cam.id);
+  return `<span class="led ${cls}" title="${esc(label)}"></span>
+    <span class="ch">CH-${chNo(cam)}</span>
+    <span class="name">${FLAG[cam.country] || ""} ${esc(cam.city)}</span>
+    <span class="place" title="${esc(cam.place)}">${esc(cam.place)}</span>
+    ${pinned ? `<span class="pin" aria-label="추천">★</span>` : ""}`;
+}
+
+function mediaHTML(cam) {
+  const c = st.checks[cam.id], th = st.thumbs[cam.id];
+  const img = (cls = "") => `<img class="${cls}" alt="${esc(cam.city)} ${esc(cam.place)} 화면" loading="lazy" decoding="async" src="${esc(th.url)}" referrerpolicy="no-referrer">`;
+  if (cam.type === "link") return `<div class="sitepanel"></div>`;
+  if (cam.type === "snapshot") return th?.hash ? img() : `<div class="sitepanel"></div>`;
+  if (!c) return `<div class="nosignal">CHECKING…</div>`;
+  if (c.status !== "live" && c.status !== "error") return `<div class="nosignal">NO SIGNAL</div>`;
+  if (playing.has(cam.id)) {
+    return `<iframe src="https://www.youtube-nocookie.com/embed/${esc(c.videoId || cam.videoId)}?autoplay=1&mute=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="${esc(cam.city)} 라이브"></iframe>`;
+  }
+  if (!th?.hash) return `<div class="nosignal">LOADING…</div>`;
+  return isFixedThumb(cam) ? img("fixed") : img();
+}
+
+function overlayHTML(cam) {
+  const c = st.checks[cam.id], w = st.weather[cam.id], s = snowOf(cam);
+  const lt = localTime(w);
+  const badges = [];
+  if (s.level === "confirmed") badges.push(`<span class="badge confirmed">❄ SNOW · ${s.preview ? "미리보기" : "확인"}</span>`);
+  else if (s.level === "likely") badges.push(`<span class="badge likely">❄ SNOW · ${s.model ? "예보" : "관측"}</span>`);
+  else if (s.level === "disputed") badges.push(`<span class="badge disputed">❄ ? 엇갈림</span>`);
+  if (s.cover) badges.push(`<span class="badge cover">⛄ 쌓인 눈${s.depthCm >= 1 ? ` ${Math.round(s.depthCm)}cm` : ""}</span>`);
+  let action = "";
+  if (cam.type === "link" || cam.type === "snapshot") {
+    action = cam.type === "link" || !st.thumbs[cam.id]?.hash
+      ? `<div class="sitepanel clear"><a class="sitebtn" href="${esc(cam.pageUrl)}" target="_blank" rel="noopener">🔗 ${esc(cam.source)}에서 보기</a></div>`
+      : `<a class="play" href="${esc(cam.pageUrl)}" target="_blank" rel="noopener">🔗 사이트에서 라이브</a>`;
+  } else if (c && (c.status === "live" || c.status === "error")) {
+    action = playing.has(cam.id) ? `<button class="play" data-stop="${esc(cam.id)}">■ 끄기</button>`
+      : (isFixedThumb(cam) && st.thumbs[cam.id]?.hash ? `<div class="osd note">미리보기가 지금 화면이 아니에요</div>` : "")
+        + `<button class="play" data-play="${esc(cam.id)}">▶ 영상 켜기</button>`;
+  }
+  return `<div class="osd tl"><span class="rec">●</span> CH-${chNo(cam)} ${esc(cam.city)}</div>
+    <div class="osd tr">${badges.join("")}</div>
+    ${w && !cam.relay ? `<div class="osd bl">${lt} ${w.isDay ? "☀" : "☾"} · ${temp(w.t)} ${esc(WX[w.code] ?? "")}</div>` : ""}
+    ${action}`;
+}
+
+function crossHTML(cam) {
+  const s = snowOf(cam), w = st.weather[cam.id], o = st.obs[cam.id], v = st.vision[cam.id], c = st.checks[cam.id];
+  if (cam.relay) return `<span class="chip na"><i></i>여러 도시를 도는 방송이라 날씨를 대조할 수 없어요</span>`;
+  if (!w) return `<span class="chip na"><i></i>날씨 불러오는 중</span>`;
+  const chip = (cls, k, val, title) => `<span class="chip ${cls}" title="${esc(title)}"><i></i><b>${k}</b>${esc(val)}</span>`;
+  const wx = WX[w.code] ?? `코드 ${w.code}`;
+  const out = [];
+  out.push(s.model
+    ? chip("on", "예보", wx + (w.snowfall > 0 ? ` ${w.snowfall}cm/h` : ""), "Open-Meteo 날씨 모델의 현재 날씨")
+    : chip("off", "예보", w.rain > 0 || (w.code >= 51 && w.code <= 67) || (w.code >= 80 && w.code <= 82) ? "비" : "눈 없음", `Open-Meteo: ${wx}, ${temp(w.t)}C`));
+  if (!o) out.push(chip("na", "관측", "공항 자료 없음", "60km 안에서 관측을 내는 공항을 찾지 못했어요"));
+  else {
+    const where = `${o.icao}(${o.name || ""}, ${o.km}km) ${ago(o.time)} 관측: ${o.raw || o.label}`;
+    if (o.km > 60) out.push(chip("na", "관측", `공항이 ${o.km}km로 멀어요`, where));
+    else if (minAgo(o.time) > 90) out.push(chip("na", "관측", `${ago(o.time)} 자료뿐`, where));
+    else if (o.snow) out.push(chip("on", "관측", `${o.label} · ${o.icao} ${o.km}km`, where));
+    else out.push(chip("off", "관측", `${o.rain ? o.label : "눈 없음"} · ${o.icao} ${o.km}km`, where));
+  }
+  const sc = s.screen;
+  if (cam.type === "link") out.push(chip("na", "화면", "볼 수 없음", "다른 사이트 재생이 막힌 캠이에요"));
+  else if (c && !["live", "fresh", "error"].includes(c.status)) out.push(chip("na", "화면", "신호 없음", ""));
+  else if (isFixedThumb(cam)) out.push(chip("na", "화면", "미리보기가 옛 화면이라 분석 불가", "유튜브가 미리보기를 갱신하지 않거나 채널이 홍보 사진을 걸어 둔 캠이에요"));
+  else if (thumbState(cam) === "unknown") out.push(chip("na", "화면", "미리보기 확인 중", "미리보기가 5분마다 바뀌는지 지켜보는 중이에요 (최대 30분)"));
+  else if (!v || !sc) out.push(chip("na", "화면", "분석 대기", "화면이 열려 있는 동안 5분마다 분석해요"));
+  else if (sc.fall === true) out.push(chip("on", "화면", `눈발 신호 ${Math.round(v.cells * 100)}%`, `새 점이 화면 칸의 ${Math.round(v.cells * 100)}%에서 보여요 (기준 ${Math.round(sc.fallThr * 100)}%). 실험적 분석이에요`));
+  else if (sc.fall === false) out.push(chip("off", "화면", "눈발 신호 없음", `새 점 ${Math.round(v.cells * 100)}% (기준 ${Math.round(sc.fallThr * 100)}%). 실험적 분석이에요`));
+  else out.push(chip("na", "화면", cam.type === "snapshot" ? "사진형은 눈발 분석 안 함" : sc.why || "분석 대기", sc.why || ""));
+  if (s.eye === true) out.push(chip("on", "사람", "눈 확인", "검증 모드에서 직접 누른 결과예요 (1시간 유효)"));
+  if (s.eye === false) out.push(chip("warm", "사람", "눈 안 보임", "검증 모드에서 직접 누른 결과예요 (1시간 유효)"));
+  if (s.cover) out.push(chip("on", "적설", s.cover === "screen" ? "화면이 하얘요" : `${s.depthCm}cm${s.cover === "both" ? " · 화면도 하얌" : ""}`, "예보 모델의 적설 깊이와 낮 화면의 흰 면적"));
+  return out.filter(h => !h.includes("<b>화면</b>")).join("");
+}
+
+function infoHTML(cam) {
+  const c = st.checks[cam.id], w = st.weather[cam.id], o = st.obs[cam.id], v = st.vision[cam.id], s = snowOf(cam), th = st.thumbs[cam.id];
+  const [cls, label] = c ? STATUS[c.status] || STATUS.unknown : ["", "확인 중…"];
+  const row = (k, val, extra = "") => `<div class="row"><span class="k">${k}</span><span class="v ${extra}">${val}</span></div>`;
+  const rows = [row("상태", esc(label), cls)];
+  if (c?.status === "live") {
+    rows.push(row("방송 시작", `${esc((c.startTimestamp || "").slice(0, 10))} (${since(c.startTimestamp)})`, "mono"));
+    rows.push(row("시청자", `${esc(c.watching ?? "-")}명 · 퍼가기 ${c.playableInEmbed ? "가능" : "<b style='color:var(--berry)'>불가</b>"}`, "mono"));
+  }
+  if (c?.takenAt) rows.push(row("사진 시각", `${ago(c.takenAt)} 촬영`, "mono"));
+  if (cam.source) rows.push(row("출처", esc(cam.source)));
+  if (c?.checkedAt && cam.videoId) rows.push(row("확인 시각", ago(c.checkedAt)));
+  if (cam.relay) rows.push(row("날씨", "여러 도시를 순환해서 연결할 수 없음", "dimtx"));
+  else if (w) {
+    rows.push(row("예보", `${esc(WX[w.code] ?? "코드 " + w.code)} · ${temp(w.t)}C${w.snowfall > 0 ? ` · 눈 ${w.snowfall}cm/h` : ""}${w.depth >= 0.01 ? ` · 적설 ${Math.round(w.depth * 100)}cm` : ""}`));
+    rows.push(row("공항 관측", o ? `${esc(o.label)}${o.t != null ? ` · ${temp(o.t)}C` : ""} <span class="dimtx">· ${esc(o.icao)} ${o.km}km · ${ago(o.time)}</span>` : "<span class='dimtx'>가까운 공항 자료 없음</span>"));
+    if (v) rows.push(row("화면 분석", `<span class="mono">하늘 ${v.sky} · 흰 면적 ${Math.round(v.white * 100)}%${v.hasPrev ? ` · 새 점 ${Math.round(v.cells * 100)}%` : ""}</span> <span class="dimtx">· ${ago(v.at)}${s.screen?.why ? " · " + esc(s.screen.why) : ""}</span>`));
+    if (s.text) rows.push(row("눈 판정", esc(s.text), s.level === "confirmed" || s.level === "likely" ? "" : "warn"));
+  }
+  if (cam.videoId) rows.push(row("영상 제목", `<span class="ellip dimtx" style="display:block" title="${esc(c?.title)}">${esc(c?.title || "-")}</span>`));
+  if (cam.note) rows.push(row("메모", esc(cam.note), "dimtx"));
+  const flags = flagsFor(cam).map(([k, t]) => `<div class="flag ${k}">${k === "info" ? "ℹ" : "⚠"} ${esc(t)}</div>`).join("");
+  return rows.join("") + (flags ? `<div class="flags">${flags}</div>` : "");
+}
+
+function footHTML(cam) {
+  const v = st.verdicts[cam.id]?.verdict, s = st.snow[cam.id] || {}, c = st.checks[cam.id];
+  const vid = c?.videoId || cam.videoId, id = esc(cam.id);
+  const eye = cam.lat != null && !cam.relay && cam.type !== "link";
+  return `<button data-verdict="real" data-cam="${id}" class="${v === "real" ? "on-real" : ""}" aria-pressed="${v === "real"}" title="화면이 지금 현지 모습이 맞을 때 (퍼가기 여부와 상관없음)">✅ 진짜 실시간</button>
+    <button data-verdict="fake" data-cam="${id}" class="${v === "fake" ? "on-fake" : ""}" aria-pressed="${v === "fake"}" title="녹화본이거나, 화질·구도가 별로라 쓰기 싫을 때">❌ 가짜·별로</button>
+    <span class="links">
+      ${cam.videoId ? `<button data-recheck="${id}" title="유튜브에 지금 다시 물어봐요">다시 확인</button>` : ""}
+      ${cam.pageUrl ? `<a href="${esc(cam.pageUrl)}" target="_blank" rel="noopener">사이트</a>` : `<a href="https://www.youtube.com/watch?v=${esc(vid)}" target="_blank" rel="noopener">유튜브</a>`}
+      <button data-del="${id}" title="목록에서 삭제">삭제</button>
+    </span>
+    ${eye ? `<span class="sep"></span><span class="lbl">지금 화면에 눈이</span>
+    <button data-eye="1" data-cam="${id}" class="${s.eye === true ? "on-eye" : ""}" aria-pressed="${s.eye === true}">내려요</button>
+    <button data-eye="0" data-cam="${id}" class="${s.eye === false ? "on-eye" : ""}" aria-pressed="${s.eye === false}">안 내려요</button>` : ""}`;
+}
+
+/* ---------- 그리기: 바뀐 부분만 갈아 끼운다 (재생 중인 영상이 끊기지 않게) ---------- */
+function makeCard(cam) {
+  const el = document.createElement("article");
+  el.className = "mon";
+  el.dataset.id = cam.id;
+  el.innerHTML = `<div class="mon-head" data-part="head"></div>
+    <div class="screen"><div class="media" data-part="media"></div><div class="overlay" data-part="overlay"></div></div>
+    <div class="cross" data-part="cross"></div>
+    <div class="info" data-part="info"></div>
+    <div class="foot" data-part="foot"></div>`;
+  return { el, html: {} };
+}
+function setPart(card, name, html) {
+  if (card.html[name] === html) return;
+  card.html[name] = html;
+  $(`[data-part="${name}"]`, card.el).innerHTML = html;
+}
+function syncFlakes(card, count) {
+  const screen = $(".screen", card.el);
+  let box = $(".flakes", screen);
+  if ((box?.childElementCount || 0) === count) return;
+  box?.remove();
+  if (!count) return;
+  box = document.createElement("div");
+  box.className = "flakes";
+  let s = "";
+  for (let i = 0; i < count; i++) {
+    const size = 2 + Math.random() * 4;
+    s += `<i style="left:${Math.random() * 100}%;width:${size}px;height:${size}px;animation-duration:${3 + Math.random() * 5}s;animation-delay:${-Math.random() * 8}s"></i>`;
+  }
+  box.innerHTML = s;
+  screen.append(box);
+}
+function renderCard(cam) {
+  let card = cards.get(cam.id);
+  if (!card) cards.set(cam.id, card = makeCard(cam));
+  const s = snowOf(cam);
+  card.el.className = `mon s-${s.level}${playing.has(cam.id) ? " playing" : ""}`;
+  setPart(card, "head", headHTML(cam));
+  setPart(card, "media", mediaHTML(cam));
+  setPart(card, "overlay", overlayHTML(cam));
+  setPart(card, "cross", crossHTML(cam));
+  if (view === "detail") {   // 관제 모드에서는 안 보이는 부분을 그리지 않는다
+    setPart(card, "info", infoHTML(cam));
+    setPart(card, "foot", footHTML(cam));
+  }
+  syncFlakes(card, s.level === "confirmed" ? 24 : s.level === "likely" ? 10 : 0);
+  return card;
+}
+
+function render() {
+  const grid = $("#grid");
+  const test = FILTERS.find(f => f[0] === filter)[2];
+  const pinRank = cam => { const i = st.pins.indexOf(cam.id); return i < 0 ? 1e6 : i; };
+  const order = [...st.cams].sort((a, b) => pinRank(a) - pinRank(b) || st.cams.indexOf(a) - st.cams.indexOf(b));
+  const alive = new Set(order.map(c => c.id));
+  for (const [id, card] of cards) if (!alive.has(id)) { card.el.remove(); cards.delete(id); playing.delete(id); }
+  order.forEach((cam, i) => {
+    const card = renderCard(cam);
+    card.el.hidden = !test(cam);
+    if (grid.children[i] !== card.el) grid.insertBefore(card.el, grid.children[i] || null);
+  });
+  renderSummary(); renderFilters(); renderTicker(); renderEvents();
+  if (view === "detail") renderLog();
+  $("#btnPlayPins").textContent = st.cams.some(c => st.pins.includes(c.id) && playing.has(c.id)) ? "■ 메인 영상 끄기" : "★ 메인 영상 켜기";
+  if (st.blockedMin) $("#notice").textContent = `유튜브가 잠시 확인을 막았어요 · 약 ${st.blockedMin}분 뒤 다시 확인 (그동안 지난 결과 표시)`;
+  else if ($("#notice").textContent.startsWith("유튜브가") || $("#notice").textContent.startsWith("서버와")) $("#notice").textContent = "";
+}
+
+function renderSummary() {
+  const vals = st.cams.map(c => st.checks[c.id]);
+  const n = (...s) => vals.filter(c => s.includes(c?.status)).length;
+  const lv = l => st.cams.filter(c => (st.snow[c.id]?.level) === l);
+  const cover = st.cams.filter(c => st.snow[c.id]?.cover && !c.id.endsWith("-walk"));
+  const cities = list => [...new Set(list.map(c => c.city))].join(", ");
+  const confirmed = lv("confirmed"), likely = [...lv("likely"), ...lv("disputed")];
+  const items = [
+    [st.cams.length, "등록 캠", ""],
+    [n("live", "fresh"), "실시간 확인", "var(--pine)"],
+    [confirmed.length, confirmed.length ? "❄ 눈 확인: " + cities(confirmed) : "❄ 눈 확인된 곳", "var(--frost)"],
+    [likely.length, likely.length ? "예보·관측만: " + cities(likely) : "예보·관측만 눈", "var(--frost)"],
+    [cover.length, cover.length ? "⛄ 쌓인 눈: " + cities(cover) : "⛄ 쌓인 눈", "#fff"],
+  ];
+  const html = items.map(([b, s, color]) => `<div><b style="color:${color || "inherit"}">${b}</b><span>${esc(s)}</span></div>`).join("");
+  if ($("#summary").dataset.html !== html) { $("#summary").innerHTML = html; $("#summary").dataset.html = html; }
+}
+
+function renderFilters() {
+  const html = FILTERS.map(([key, label, test]) =>
+    `<button data-filter="${key}" aria-pressed="${filter === key}">${label} ${st.cams.filter(test).length}</button>`).join("");
+  const box = $("#filters");
+  if (box.dataset.html !== html) { box.innerHTML = html; box.dataset.html = html; }
+}
+
+function dday() {
+  const kst = new Date(Date.now() + 9 * 36e5);
+  let year = kst.getUTCFullYear();
+  const today = Date.UTC(year, kst.getUTCMonth(), kst.getUTCDate());
+  if (today > Date.UTC(year, 11, 25)) year++;
+  const d = Math.round((Date.UTC(year, 11, 25) - today) / 864e5);
+  return d === 0 ? "🎄 메리 크리스마스!" : `🎄 크리스마스까지 D-${d}`;
+}
+
+function renderTicker() {
+  const withWx = st.cams.filter(c => st.weather[c.id] && !c.relay && !c.id.endsWith("-walk") && !c.id.startsWith("trap-"));
+  const uniq = list => [...new Set(list)];
+  const items = [];
+  const confirmed = withWx.filter(c => st.snow[c.id]?.level === "confirmed");
+  const likely = withWx.filter(c => ["likely", "disputed"].includes(st.snow[c.id]?.level));
+  if (confirmed.length) items.push(`<span class="snow">❄ 지금 눈이 확인된 곳: <b>${esc(uniq(confirmed.map(c => c.city)).join(", "))}</b></span>`);
+  if (likely.length) items.push(`<span class="snow">❄ 예보·관측으로 눈 가능: ${esc(uniq(likely.map(c => c.city)).join(", "))}</span>`);
+  if (!confirmed.length && !likely.length && withWx.length) items.push("❄ 지금 눈 오는 마켓은 없어요");
+  const cover = withWx.filter(c => st.weather[c.id].depth >= 0.01);
+  if (cover.length) items.push(`⛄ 쌓인 눈: ${esc(uniq(cover.map(c => `${c.city} ${Math.round(st.weather[c.id].depth * 100)}cm`)).join(", "))}`);
+  if (withWx.length) {
+    const byT = [...withWx].sort((a, b) => st.weather[a.id].t - st.weather[b.id].t);
+    const cold = byT[0], warm = byT[byT.length - 1];
+    items.push(`🥶 가장 추운 곳: ${esc(cold.city)} ${temp(st.weather[cold.id].t)}C`);
+    items.push(`☕ 가장 포근한 곳: ${esc(warm.city)} ${temp(st.weather[warm.id].t)}C`);
+    const night = withWx.filter(c => !st.weather[c.id].isDay).length;
+    items.push(`🌙 밤 ${night}곳 · ☀ 낮 ${withWx.length - night}곳`);
+    const freezing = withWx.filter(c => st.weather[c.id].t <= 0);
+    if (freezing.length) items.push(`🧊 영하인 곳: ${esc(uniq(freezing.map(c => c.city)).join(", "))}`);
+  }
+  const html = items.map(t => `<span>${t}</span>`).join("");
+  const track = $("#ticker");
+  if (track.dataset.html === html) return;
+  track.dataset.html = html;
+  track.innerHTML = html + html;   // 두 번 이어 붙여서 끊김 없이 흐르게 한다
+  track.style.setProperty("--dur", Math.max(40, track.textContent.length * 0.22) + "s");
+}
+
+function renderEvents() {
+  const NAME = { confirmed: "❄ 눈 확인", likely: "❄ 눈 가능 (근거 하나)", disputed: "예보·관측 엇갈림", screen: "화면에만 눈발 신호", none: "눈 그침·해제" };
+  const html = st.events.length
+    ? st.events.map(e => `<li><time>${esc(kstStamp(e.at))}</time><b>${esc(e.city)}</b><span>${NAME[e.level] || e.level}</span><span class="dimtx">${esc(e.text)}</span></li>`).join("")
+    : `<li class="dimtx">아직 눈 판정 기록이 없어요. 어딘가에 눈이 오기 시작하면 여기에 남아요.</li>`;
+  const box = $("#events");
+  if (box.dataset.html !== html) { box.innerHTML = html; box.dataset.html = html; }
+}
+
+function renderLog() {
+  $("#logBody").innerHTML = st.cams.map(c => {
+    const s = st.stats[c.id] || { checks: 0, live: 0 };
+    const pct = s.checks ? Math.round(s.live / s.checks * 100) : 0;
+    const v = st.verdicts[c.id]?.verdict, chk = st.checks[c.id];
+    const blog = chk?.playableInEmbed === false ? "<span style='color:var(--berry)'>✕ 퍼가기 불가</span>"
+      : c.type === "link" ? "<span style='color:var(--gold)'>🔗 링크만 가능</span>"
+      : c.type === "snapshot" ? "<span style='color:var(--gold)'>△ 사이트 허락 필요</span>"
+      : c.relay ? "<span style='color:var(--gold)'>△ 릴레이</span>"
+      : v === "fake" ? "<span style='color:var(--berry)'>✕</span>"
+      : v === "real" && pct >= 80 ? "<span style='color:var(--pine)'>● 가능</span>"
+      : v === "real" ? "<span style='color:var(--gold)'>△ 라이브 비율 낮음</span>"
+      : "<span class='dimtx'>판정 필요</span>";
+    return `<tr>
+      <td class="num">${chNo(c)}</td>
+      <td>${st.pins.includes(c.id) ? "★ " : ""}${FLAG[c.country] || ""} ${esc(c.city)} <span class="dimtx">${esc(c.place)}</span></td>
+      <td class="num">${s.checks}회</td>
+      <td class="num">${c.type === "link" ? "-" : `<span class="meter"><i style="width:${pct}%"></i></span>${pct}%`}</td>
+      <td>${ago(s.lastLive)}</td>
+      <td>${v === "real" ? "✅ 진짜" : v === "fake" ? "❌ 가짜·별로" : "<span class='dimtx'>미판정</span>"}</td>
+      <td>${blog}</td>
+    </tr>`;
+  }).join("");
+}
+
+/* ---------- 화면 분석 대기열: 새 미리보기가 오면 한 대씩 차례로 분석한다 ---------- */
+const frames = new Map();     // camId -> { hash, frame }
+const queue = [];
+let analysing = false;
+function queueVision() {
+  for (const cam of st.cams) {
+    const th = st.thumbs[cam.id], c = st.checks[cam.id];
+    if (!th?.hash || cam.relay || cam.lat == null || isFixedThumb(cam)) continue;
+    if (!(cam.type === "snapshot" || c?.status === "live")) continue;
+    if (frames.get(cam.id)?.hash === th.hash || queue.includes(cam.id)) continue;
+    queue.push(cam.id);
+  }
+  if (!analysing) nextVision();
+}
+async function nextVision() {
+  const id = queue.shift();
+  if (!id) { analysing = false; return; }
+  analysing = true;
+  const cam = st.cams.find(c => c.id === id), th = st.thumbs[id], w = st.weather[id];
+  try {
+    if (cam && th?.hash && w) {
+      const img = new Image();
+      img.src = `/api/thumb?id=${encodeURIComponent(id)}&v=${th.hash}`;
+      await img.decode();
+      const prev = cam.type === "snapshot" ? null : frames.get(id)?.frame;   // 사진형은 간격이 길어 비교하지 않는다
+      const { metrics, frame } = SnowVision.analyze(img, prev || null);
+      frames.set(id, { hash: th.hash, frame });
+      await api("/api/vision", { camId: id, hash: th.hash, isDay: !!w.isDay, ...metrics });
+    }
+  } catch (e) { frames.set(id, { hash: th?.hash, frame: frames.get(id)?.frame }); }
+  setTimeout(nextVision, 120);
+}
+
+/* ---------- 상태 받아 오기 ---------- */
+async function poll() {
+  try {
+    st = await api("/api/state");
+    loaded = true;
+    render();
+  } catch (e) {
+    $("#notice").textContent = "자료를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.";
+  }
+}
+
+/* ---------- 누르는 것들 ---------- */
+document.addEventListener("click", async e => {
+  const t = e.target.closest("button");
+  if (!t) return;
+  const d = t.dataset;
+  try {
+    if (d.play) { playing.add(d.play); render(); }
+    else if (d.stop) { playing.delete(d.stop); render(); }
+    else if (d.filter) { filter = d.filter; render(); }
+    else if (d.viewBtn) setView(d.viewBtn);
+    else if (d.pin) { st.pins = await api("/api/pin", { camId: d.pin, pinned: !st.pins.includes(d.pin) }); render(); }
+    else if (d.verdict) {
+      const cur = st.verdicts[d.cam]?.verdict;
+      st.verdicts = await api("/api/verdict", { camId: d.cam, verdict: cur === d.verdict ? null : d.verdict });
+      render();
+    } else if (d.eye) {
+      const seen = d.eye === "1", cur = st.snow[d.cam]?.eye;
+      await api("/api/snow-label", { camId: d.cam, seen: cur === seen ? null : seen });
+      await poll();
+    } else if (d.recheck) {
+      const r = await api("/api/recheck", { camId: d.recheck });
+      t.textContent = r.blockedMin ? `${r.blockedMin}분 뒤 가능` : "요청함";
+      setTimeout(poll, 6000);
+    } else if (d.del) {
+      const cam = st.cams.find(c => c.id === d.del);
+      if (!confirm(`'${cam.city} · ${cam.place}' 캠을 목록에서 뺄까요?`)) return;
+      await api("/api/cams/delete", { id: cam.id });
+      await poll();
+    }
+  } catch (err) { $("#notice").textContent = "실패: " + err.message; }
+});
+
+function setView(v) {
+  view = v;
+  document.body.dataset.view = v;
+  document.querySelectorAll("[data-view-btn]").forEach(b => b.setAttribute("aria-pressed", b.dataset.viewBtn === v));
+  try { localStorage.setItem("sw-view", v); } catch { }
+  if (loaded) render();
+}
+
+$("#btnPreview").onclick = e => {
+  previewSnow = !previewSnow;
+  e.currentTarget.setAttribute("aria-pressed", previewSnow);
+  render();
+};
+$("#btnPlayPins").onclick = () => {
+  const pinned = st.cams.filter(c => st.pins.includes(c.id) && canPlay(c));
+  if (!pinned.length) { $("#notice").textContent = "먼저 모니터의 별(☆)을 눌러 메인 캠을 골라 주세요."; return; }
+  if (pinned.some(c => playing.has(c.id))) pinned.forEach(c => playing.delete(c.id));
+  else pinned.slice(0, 9).forEach(c => playing.add(c.id));   // 영상을 너무 많이 켜면 컴퓨터가 느려진다
+  render();
+};
+$("#btnAdd").onclick = () => { $("#addMsg").textContent = ""; $("#addDlg").showModal(); };
+$("#addForm").addEventListener("submit", async e => {
+  if (e.submitter?.value !== "ok") return;
+  e.preventDefault();
+  const f = new FormData(e.target), msg = $("#addMsg");
+  try {
+    msg.textContent = "도시 좌표 찾는 중…";
+    const g = await (await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(f.get("city"))}&count=1&language=ko`)).json();
+    const p = g.results?.[0];
+    if (!p) { msg.textContent = "도시를 찾지 못했어요. 영어 이름으로 다시 적어 주세요."; return; }
+    msg.textContent = `${p.name}, ${p.country} 확인. 목록에 넣는 중…`;
+    await api("/api/cams", { url: f.get("url"), city: p.name, country: p.country_code, place: f.get("place"), lat: p.latitude, lon: p.longitude });
+    $("#addDlg").close(); e.target.reset();
+    await poll();
+    $("#notice").textContent = "추가했어요. 라이브 여부와 날씨는 1~2분 안에 채워져요.";
+  } catch (err) { msg.textContent = "실패: " + err.message; }
+});
+
+/* ---------- 배경 눈 ---------- */
+const snowfx = (() => {
+  const cv = $("#snowfx"), ctx = cv.getContext("2d");
+  let flakes = [], raf = 0, last = 0, on = false;
+  function resize() {
+    cv.width = innerWidth; cv.height = innerHeight;
+    flakes = Array.from({ length: Math.min(80, Math.round(innerWidth / 18)) }, () => ({
+      x: Math.random() * cv.width, y: Math.random() * cv.height, r: .7 + Math.random() * 2,
+      v: 10 + Math.random() * 24, p: Math.random() * 6.3, a: .2 + Math.random() * .45,
+    }));
+  }
+  function frame(t) {
+    raf = requestAnimationFrame(frame);
+    if (t - last < 40) return;                      // 초당 25장이면 충분하다
+    const dt = Math.min(.1, (t - last) / 1000); last = t;
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = "#fff";
+    for (const f of flakes) {
+      f.y += f.v * dt; f.p += dt; f.x += Math.sin(f.p) * 9 * dt;
+      if (f.y > cv.height + 4) { f.y = -4; f.x = Math.random() * cv.width; }
+      ctx.globalAlpha = f.a;
+      ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.3); ctx.fill();
+    }
+  }
+  function set(v) {
+    on = v;
+    cancelAnimationFrame(raf);
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    if (on && !document.hidden) raf = requestAnimationFrame(frame);
+    $("#btnFx").setAttribute("aria-pressed", on);
+    try { localStorage.setItem("sw-fx", on ? "1" : "0"); } catch { }
+  }
+  addEventListener("resize", resize);
+  document.addEventListener("visibilitychange", () => set(on));   // 탭이 가려지면 멈춘다
+  resize();
+  return { set, toggle: () => set(!on) };
+})();
+$("#btnFx").onclick = snowfx.toggle;
+{
+  let saved = null;
+  try { saved = localStorage.getItem("sw-fx"); } catch { }
+  snowfx.set(saved !== null ? saved === "1" : !matchMedia("(prefers-reduced-motion: reduce)").matches);
+}
+
+function tick() {
+  $("#clock").textContent = "KST " + new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+  $("#dday").textContent = dday();
+}
+setInterval(tick, 1000); tick();
+$("#btnPreview").setAttribute("aria-pressed", previewSnow);
+setView(view);
+poll();
+setInterval(() => { if (!document.hidden) poll(); }, POLL_MS);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) poll(); });
+</script>
+</body>
+</html>
