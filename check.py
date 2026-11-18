@@ -33,7 +33,13 @@ def retry(fn, tries=3):
             time.sleep(5 * (i + 1))
 
 
-API_KEY = os.environ.get("YT_API_KEY", "").strip()
+_RAW_KEY = os.environ.get("YT_API_KEY", "")
+_m = __import__("re").search(r"AIza[0-9A-Za-z_-]{35}", _RAW_KEY)
+API_KEY = _m.group(0) if _m else ""
+if _RAW_KEY and not _m:
+    print("YT_API_KEY 값에서 AIza로 시작하는 39자 키를 찾지 못했어요 (저장된 길이 %d, 앞 4글자 %r)" % (len(_RAW_KEY), _RAW_KEY[:4]), flush=True)
+elif _RAW_KEY and len(_RAW_KEY.strip()) != len(API_KEY):
+    print("YT_API_KEY 값에 키 말고 다른 글자가 섞여 있어요 (저장된 길이 %d, 키 부분 %d)" % (len(_RAW_KEY.strip()), len(API_KEY)), flush=True)
 
 
 def api_round(cams):
