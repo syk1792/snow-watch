@@ -910,5 +910,99 @@ poll();
 setInterval(() => { if (!document.hidden) poll(); }, POLL_MS);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) poll(); });
 </script>
+
+<style>
+#lb { position: fixed; inset: 0; z-index: 1000; background: rgba(3, 10, 16, .94); display: none; flex-direction: column; align-items: center; justify-content: center; padding: 8px; }
+#lb.on { display: flex; }
+#lb .bar, #lb .vid, #lb .info { width: min(98vw, calc((100vh - 120px) * 16 / 9)); }
+#lb .bar { display: flex; align-items: center; gap: 8px; padding-bottom: 8px; color: #f5ecd9; }
+#lb .ttl { flex: 1; min-width: 0; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#lb .bar button, #lb .bar a { background: rgba(207, 168, 116, .14); color: #f5ecd9; border: 1px solid rgba(207, 168, 116, .6); border-radius: 8px; padding: 7px 12px; font: 600 14px/1.2 inherit; cursor: pointer; text-decoration: none; white-space: nowrap; }
+#lb .bar button:hover, #lb .bar a:hover, #lb .bar button:focus-visible { background: rgba(207, 168, 116, .3); outline: none; }
+#lb .vid { aspect-ratio: 16 / 9; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, .6); }
+#lb .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
+#lb .info { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-top: 8px; color: #cfa874; font-size: 13px; }
+.screen:has(.play[data-play]) { cursor: zoom-in; }
+@media (max-width: 560px) { #lb .bar .yt { display: none; } #lb .bar button, #lb .bar a { padding: 7px 9px; } }
+</style>
+<script>
+(function () {
+  var lb = document.createElement("div");
+  lb.id = "lb"; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.setAttribute("aria-label", "큰 화면으로 보기");
+  lb.innerHTML = '<div class="bar"><span class="ttl"></span>' +
+    '<button type="button" data-lb="prev" aria-label="이전 캠">◀</button>' +
+    '<button type="button" data-lb="next" aria-label="다음 캠">▶</button>' +
+    '<a class="yt" data-lb="yt" target="_blank" rel="noopener">YouTube에서 열기</a>' +
+    '<button type="button" data-lb="close">✕ 닫기</button></div><div class="vid"></div><div class="info"></div>';
+  document.body.appendChild(lb);
+  var ttl = lb.querySelector(".ttl"), vidEl = lb.querySelector(".vid"), info = lb.querySelector(".info"), yt = lb.querySelector(".yt");
+  var curId = null, pushed = false;
+  var camById = function (id) { return st.cams.find(function (c) { return c.id === id; }); };
+  function order() {   // 지금 화면에 보이는 모니터 순서대로, 재생할 수 있는 캠만
+    return [].slice.call(document.querySelectorAll("#grid .mon:not([hidden])")).map(function (e) { return e.dataset.id; })
+      .filter(function (id) { var c = camById(id); return c && canPlay(c); });
+  }
+  function infoHTML(cam) {
+    var w = st.weather[cam.id], s = snowOf(cam), bits = [];
+    if (w && !cam.relay) bits.push(localTime(w) + " " + (w.isDay ? "☀" : "☾") + " " + temp(w.t) + "C " + (WX[w.code] || ""));
+    if (s.level === "confirmed") bits.push("❄ 눈 확인");
+    else if (s.level === "likely") bits.push("❄ 눈 가능 (예보·관측)");
+    else if (s.level === "disputed") bits.push("❄ 예보와 관측이 엇갈려요");
+    if (s.cover && s.depthCm >= 1) bits.push("⛄ 쌓인 눈 " + Math.round(s.depthCm) + "cm");
+    return bits.map(function (b) { return "<span>" + esc(b) + "</span>"; }).join("");
+  }
+  function show(id) {
+    var cam = camById(id); if (!cam || !canPlay(cam)) return;
+    var c = st.checks[id], vid = c.videoId || cam.videoId;
+    curId = id;
+    if (playing.size) { playing.clear(); render(); }   // 칸 안에서 틀어 둔 영상은 끈다
+    vidEl.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(vid) + '?autoplay=1&mute=1&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="' + esc(cam.city) + ' 라이브"></iframe>';
+    ttl.textContent = (FLAG[cam.country] || "") + " " + cam.city + " · " + cam.place;
+    yt.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(vid);
+    info.innerHTML = infoHTML(cam);
+    if (!lb.classList.contains("on")) {
+      lb.classList.add("on");
+      document.documentElement.style.overflow = "hidden";
+      try { history.pushState({ swLb: 1 }, ""); pushed = true; } catch (e) { pushed = false; }   // 뒤로가기를 누르면 이 창만 닫히게
+    }
+    lb.querySelector('[data-lb="close"]').focus();
+  }
+  function hide(fromPop) {
+    if (!lb.classList.contains("on")) return;
+    lb.classList.remove("on"); vidEl.innerHTML = ""; curId = null;
+    document.documentElement.style.overflow = "";
+    var wasPushed = pushed; pushed = false;
+    if (!fromPop && wasPushed && history.state && history.state.swLb) history.back();
+  }
+  function step(d) {
+    var o = order(); if (!o.length) return;
+    var i = o.indexOf(curId); show(o[(i + d + o.length) % o.length]);
+  }
+  window.addEventListener("popstate", function () { hide(true); });
+  document.addEventListener("click", function (e) {
+    var play = e.target.closest("[data-play]");
+    if (play) { e.preventDefault(); e.stopImmediatePropagation(); show(play.dataset.play); return; }
+    var b = e.target.closest("#lb [data-lb]");
+    if (b) {
+      var k = b.dataset.lb;
+      if (k === "close") hide(); else if (k === "prev") step(-1); else if (k === "next") step(1);
+      return;
+    }
+    if (e.target === lb) { hide(); return; }
+    var sc = e.target.closest(".screen");   // 모니터 화면을 눌러도 큰 화면으로 열린다
+    if (sc && !e.target.closest("button, a, iframe")) {
+      var card = sc.closest(".mon"), cam = card && camById(card.dataset.id);
+      if (cam && canPlay(cam) && !playing.has(cam.id)) { e.preventDefault(); e.stopImmediatePropagation(); show(cam.id); }
+    }
+  }, true);
+  document.addEventListener("keydown", function (e) {
+    if (lb.classList.contains("on")) {
+      if (e.key === "Escape") hide(); else if (e.key === "ArrowLeft") step(-1); else if (e.key === "ArrowRight") step(1);
+    } else if (e.key === "Escape" && window.parent !== window) {   // 블로그 안의 관제실이면 바깥 창에 닫으라고 알린다
+      try { window.parent.postMessage({ snowWatch: "close" }, "*"); } catch (err) { }
+    }
+  });
+})();
+</script>
 </body>
 </html>
