@@ -932,7 +932,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
   lb.innerHTML = '<div class="bar"><span class="ttl"></span>' +
     '<button type="button" data-lb="prev" aria-label="이전 캠">◀</button>' +
     '<button type="button" data-lb="next" aria-label="다음 캠">▶</button>' +
-    '<a class="yt" data-lb="yt" target="_blank" rel="noopener">YouTube에서 열기</a>' +
+    '<a class="yt" data-lb="yt" target="_blank" rel="noopener" title="새 탭에서 열려요. 그 탭을 닫으면 관제실로 돌아와요">YouTube 새 탭 ↗</a>' +
     '<button type="button" data-lb="close">✕ 닫기</button></div><div class="vid"></div><div class="info"></div>';
   document.body.appendChild(lb);
   var ttl = lb.querySelector(".ttl"), vidEl = lb.querySelector(".vid"), info = lb.querySelector(".info"), yt = lb.querySelector(".yt");
