@@ -245,7 +245,9 @@
     .ticker-track { animation: none; white-space: normal; flex-wrap: wrap; }
   }
 </style>
-<style>[data-view-btn], .seg, #btnPreview, #btnAdd, #addDlg, .only-detail { display: none !important; }</style>
+<style>[data-view-btn], .seg, #btnPreview, #btnAdd, #addDlg, .only-detail { display: none !important; }
+#countrySel { background: #0b1b2b; color: #cfe3f5; border: 1px solid rgba(164,222,255,.35); border-radius: 999px; padding: 4px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+#countrySel:focus-visible { outline: 2px solid #a4deff; outline-offset: 2px; }</style>
 </head>
 <body data-view="wall">
 <canvas id="snowfx" aria-hidden="true"></canvas>
@@ -275,6 +277,7 @@
 <div class="summary" id="summary"></div>
 <div class="bar2">
   <div class="filters" id="filters" role="group" aria-label="모니터 고르기"></div>
+  <select id="countrySel" aria-label="나라별로 보기"></select>
   <button id="btnPlayPins" title="별(★)로 고른 메인 캠의 라이브 영상을 한꺼번에 켜요 (최대 9대)">★ 메인 영상 켜기</button>
   <span class="notice" id="notice"></span>
 </div>
@@ -339,6 +342,11 @@ const WX = {
   85: "약한 소낙눈", 86: "강한 소낙눈", 95: "뇌우", 96: "우박 뇌우", 99: "우박 뇌우",
 };
 const FLAG = { FI: "🇫🇮", DE: "🇩🇪", BE: "🇧🇪", NL: "🇳🇱", CH: "🇨🇭", HU: "🇭🇺", SI: "🇸🇮", EE: "🇪🇪", IE: "🇮🇪", CA: "🇨🇦", US: "🇺🇸", JP: "🇯🇵", AT: "🇦🇹", FR: "🇫🇷", CZ: "🇨🇿", PL: "🇵🇱", GB: "🇬🇧", DK: "🇩🇰", NO: "🇳🇴", SE: "🇸🇪", IT: "🇮🇹", LV: "🇱🇻", LT: "🇱🇹", KR: "🇰🇷" };
+const COUNTRY = { KR: "한국", JP: "일본", FI: "핀란드", DE: "독일", AT: "오스트리아", BE: "벨기에", NL: "네덜란드", CZ: "체코", CH: "스위스", FR: "프랑스", HU: "헝가리", SI: "슬로베니아", EE: "에스토니아", IE: "아일랜드", US: "미국", CA: "캐나다", PL: "폴란드", GB: "영국", DK: "덴마크", NO: "노르웨이", SE: "스웨덴", IT: "이탈리아", LV: "라트비아", LT: "리투아니아" };
+const flagOK = !/Windows/i.test(navigator.userAgent);   // 윈도우는 국기 이모지를 영문 두 글자(DE, US)로 보여 줘서 이름만 쓴다
+const flagOf = cam => (flagOK && FLAG[cam.country]) ? FLAG[cam.country] + " " : "";
+const placeName = cam => flagOf(cam) + (COUNTRY[cam.country] ? COUNTRY[cam.country] + " · " : "") + cam.city;
+let country = "";
 const STATUS = {
   live: ["ok", "실시간 방송 중"],
   ended: ["bad", "방송 끝남 (녹화본)"],
@@ -458,7 +466,7 @@ function headHTML(cam) {
   const pinned = st.pins.includes(cam.id);
   return `<span class="led ${cls}" title="${esc(label)}"></span>
     <span class="ch">CH-${chNo(cam)}</span>
-    <span class="name">${FLAG[cam.country] || ""} ${esc(cam.city)}</span>
+    <span class="name">${esc(placeName(cam))}</span>
     <span class="place" title="${esc(cam.place)}">${esc(cam.place)}</span>
     ${pinned ? `<span class="pin" aria-label="추천">★</span>` : ""}`;
 }
@@ -627,7 +635,8 @@ function renderCard(cam) {
 
 function render() {
   const grid = $("#grid");
-  const test = FILTERS.find(f => f[0] === filter)[2];
+  const test0 = FILTERS.find(f => f[0] === filter)[2];
+  const test = cam => test0(cam) && (!country || cam.country === country);
   const pinRank = cam => { const i = st.pins.indexOf(cam.id); return i < 0 ? 1e6 : i; };
   const order = [...st.cams].sort((a, b) => pinRank(a) - pinRank(b) || st.cams.indexOf(a) - st.cams.indexOf(b));
   const alive = new Set(order.map(c => c.id));
@@ -637,11 +646,22 @@ function render() {
     card.el.hidden = !test(cam);
     if (grid.children[i] !== card.el) grid.insertBefore(card.el, grid.children[i] || null);
   });
-  renderSummary(); renderFilters(); renderTicker(); renderEvents();
+  renderSummary(); renderFilters(); renderCountries(); renderTicker(); renderEvents();
   if (view === "detail") renderLog();
   $("#btnPlayPins").textContent = st.cams.some(c => st.pins.includes(c.id) && playing.has(c.id)) ? "■ 메인 영상 끄기" : "★ 메인 영상 켜기";
   if (st.blockedMin) $("#notice").textContent = `유튜브가 잠시 확인을 막았어요 · 약 ${st.blockedMin}분 뒤 다시 확인 (그동안 지난 결과 표시)`;
   else if ($("#notice").textContent.startsWith("유튜브가") || $("#notice").textContent.startsWith("서버와")) $("#notice").textContent = "";
+}
+
+function renderCountries() {
+  const sel = $("#countrySel");
+  const counts = {};
+  st.cams.forEach(c => { if (c.country && !c.relay) counts[c.country] = (counts[c.country] || 0) + 1; });
+  const keys = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || (COUNTRY[a] || a).localeCompare(COUNTRY[b] || b, "ko"));
+  const html = `<option value="">🌍 모든 나라 ${st.cams.length}</option>` +
+    keys.map(k => `<option value="${k}">${(flagOK && FLAG[k]) ? FLAG[k] + " " : ""}${esc(COUNTRY[k] || k)} ${counts[k]}</option>`).join("");
+  if (sel.dataset.html !== html) { sel.innerHTML = html; sel.dataset.html = html; }
+  sel.value = country;
 }
 
 function renderSummary() {
@@ -957,7 +977,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
     curId = id;
     if (playing.size) { playing.clear(); render(); }   // 칸 안에서 틀어 둔 영상은 끈다
     vidEl.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(vid) + '?autoplay=1&mute=1&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="' + esc(cam.city) + ' 라이브"></iframe>';
-    ttl.textContent = (FLAG[cam.country] || "") + " " + cam.city + " · " + cam.place;
+    ttl.textContent = placeName(cam) + " · " + cam.place;
     yt.href = "https://www.youtube.com/watch?v=" + encodeURIComponent(vid);
     info.innerHTML = infoHTML(cam);
     if (!lb.classList.contains("on")) {
@@ -979,6 +999,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
     var i = o.indexOf(curId); show(o[(i + d + o.length) % o.length]);
   }
   window.addEventListener("popstate", function () { hide(true); });
+  document.getElementById("countrySel").addEventListener("change", function (e) { country = e.target.value; render(); });
   document.addEventListener("click", function (e) {
     var play = e.target.closest("[data-play]");
     if (play) { e.preventDefault(); e.stopImmediatePropagation(); show(play.dataset.play); return; }
