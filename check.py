@@ -149,6 +149,10 @@ def public_state():
     st["thumbs"] = thumbs
     st["pins"] = [p for p in st["pins"] if p in keep and p in thumbs]
     st["vision"], st["verdicts"], st["stats"] = {}, {}, {}
+    wnote = sv.S.get("weatherNote") or {}
+    wtimes = [v.get("fetchedAt") for v in sv.S["weather"].values() if v.get("fetchedAt")]
+    st["meta"] = {"weatherTriedAt": wnote.get("at"), "weatherErrors": wnote.get("errors", []),
+                  "weatherNewestAt": max(wtimes) if wtimes else None}
     st["events"] = [e for e in st["events"] if e.get("camId") in keep]
     return st
 
@@ -174,7 +178,10 @@ def main():
     log(f"   {n}개 확인")
 
     log("2) 날씨 예보")
-    retry(sv.update_weather)
+    try:
+        sv.update_weather()          # 안에서 20곳씩 3번까지 다시 시도한다
+    except Exception as e:
+        log("   날씨 실패:", e)
     log("3) 공항 관측")
     retry(sv.update_obs)
     log("4) 미리보기")

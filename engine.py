@@ -352,10 +352,25 @@ def yt_worker():
 
 # ---- 날씨: 예보 모델 + 공항 관측 ---------------------------------------------
 def update_weather():
+    """예보를 20곳씩 받는다. 한 묶음이 3번 실패하면 그 이유를 S["weatherNote"]에 적고, 마지막에 예외로 알린다."""
     cams = [c for c in load_cams() if c.get("lat") is not None and c.get("lon") is not None]
+    errors = []
     for i in range(0, len(cams), 20):
-        _update_weather_chunk(cams[i:i + 20])
+        chunk = cams[i:i + 20]
+        for attempt in range(3):
+            try:
+                _update_weather_chunk(chunk)
+                break
+            except Exception as e:
+                if attempt == 2:
+                    errors.append(f"{type(e).__name__}: {e}"[:120])
+                else:
+                    time.sleep(3 * (attempt + 1))
         time.sleep(1)
+    with L:
+        S["weatherNote"] = {"at": now_iso(), "errors": errors}
+    if errors:
+        raise RuntimeError("; ".join(errors)[:300])
 
 
 def _update_weather_chunk(cams):
@@ -365,7 +380,7 @@ def _update_weather_chunk(cams):
            + "&longitude=" + ",".join(str(c["lon"]) for c in cams)
            + "&current=temperature_2m,weather_code,is_day,snowfall,snow_depth,precipitation,rain"
            + "&timezone=auto")
-    _, body, _ = http_get(url, timeout=30)
+    _, body, _ = http_get(url, timeout=20)
     data = json.loads(body)
     if isinstance(data, dict):
         data = [data]

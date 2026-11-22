@@ -800,6 +800,8 @@ async function poll() {
     st = await api("/api/state");
     loaded = true;
     render();
+    const tg = document.querySelector(".brand .tag");
+    if (tg) { const m = minAgo(st.now); tg.textContent = "LIVE · " + ago(st.now) + " 확인" + (m > 120 ? " · 갱신 지연" : ""); }
   } catch (e) {
     $("#notice").textContent = "자료를 불러오지 못했어요. 잠시 뒤 다시 시도해 주세요.";
   }
