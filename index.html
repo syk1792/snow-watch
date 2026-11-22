@@ -273,6 +273,7 @@
   <div class="lights" aria-hidden="true"></div>
 </header>
 
+<div id="santaBar" class="santa-bar" hidden></div>
 <div class="ticker" aria-label="현재 소식"><div class="ticker-track" id="ticker"></div></div>
 <div class="summary" id="summary"></div>
 <div class="bar2">
@@ -945,7 +946,10 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
 #lb .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
 #lb .info { display: flex; flex-wrap: wrap; gap: 6px 14px; padding-top: 8px; color: #cfa874; font-size: 13px; }
 .screen:has(.play[data-play]) { cursor: zoom-in; }
-@media (max-width: 560px) { #lb .bar .yt { display: none; } #lb .bar button, #lb .bar a { padding: 7px 9px; } }
+#lb.site [data-lb="prev"], #lb.site [data-lb="next"] { display: none; }
+#lb.site .bar, #lb.site .vid, #lb.site .info { width: min(98vw, 1200px); }
+#lb.site .vid { aspect-ratio: auto; height: calc(100vh - 130px); background: #fff; }
+@media (max-width: 560px) { #lb .bar .yt { display: none; } #lb.site .bar .yt { display: inline-block; } #lb .bar button, #lb .bar a { padding: 7px 9px; } }
 </style>
 <script>
 (function () {
@@ -977,6 +981,7 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
     var cam = camById(id); if (!cam || !canPlay(cam)) return;
     var c = st.checks[id], vid = c.videoId || cam.videoId;
     curId = id;
+    lb.classList.remove("site"); yt.textContent = "YouTube 새 탭 ↗";
     if (playing.size) { playing.clear(); render(); }   // 칸 안에서 틀어 둔 영상은 끈다
     vidEl.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(vid) + '?autoplay=1&mute=1&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="' + esc(cam.city) + ' 라이브"></iframe>';
     ttl.textContent = placeName(cam) + " · " + cam.place;
@@ -996,6 +1001,22 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
     var wasPushed = pushed; pushed = false;
     if (!fromPop && wasPushed && history.state && history.state.swLb) history.back();
   }
+  function showUrl(name, url) {   // 공식 사이트를 큰 화면 창 안에 그대로 연다 (산타 트래커)
+    curId = null;
+    if (playing.size) { playing.clear(); render(); }
+    lb.classList.add("site");
+    vidEl.innerHTML = '<iframe src="' + esc(url) + '" allow="fullscreen" allowfullscreen title="' + esc(name) + '"></iframe>';
+    ttl.textContent = name;
+    yt.href = url; yt.textContent = "새 탭에서 열기 ↗";
+    info.innerHTML = "<span>공식 사이트를 그대로 보여줘요. 화면이 안 열리거나 불편하면 '새 탭에서 열기'를 눌러 주세요.</span>";
+    if (!lb.classList.contains("on")) {
+      lb.classList.add("on");
+      document.documentElement.style.overflow = "hidden";
+      try { history.pushState({ swLb: 1 }, ""); pushed = true; } catch (e) { pushed = false; }
+    }
+    lb.querySelector('[data-lb="close"]').focus();
+  }
+  window.swOpenSite = showUrl;
   function step(d) {
     var o = order(); if (!o.length) return;
     var i = o.indexOf(curId); show(o[(i + d + o.length) % o.length]);
@@ -1025,6 +1046,56 @@ document.addEventListener("visibilitychange", () => { if (!document.hidden) poll
       try { window.parent.postMessage({ snowWatch: "close" }, "*"); } catch (err) { }
     }
   });
+})();
+</script>
+
+<style>
+.santa-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 8px 20px; background: linear-gradient(90deg, #14301f, #1b3a2a, #14301f); border-bottom: 1px solid var(--line); color: #e8f0f8; font-size: 14px; }
+.santa-bar[hidden] { display: none; }
+.santa-bar .msg b { font-weight: 700; }
+.santa-bar .msg small { color: #b8c9da; font-size: 12px; margin-left: 6px; }
+.santa-bar .btns { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.santa-bar button { background: rgba(255, 255, 255, .1); color: #fff; border: 1px solid rgba(255, 255, 255, .4); border-radius: 999px; padding: 4px 12px; font: 600 13px inherit; cursor: pointer; }
+.santa-bar button:hover, .santa-bar button:focus-visible { background: rgba(255, 255, 255, .25); outline: none; }
+.santa-bar.on { background: linear-gradient(90deg, #8b0f1c, #c2182b, #8b0f1c); border-bottom-color: #ff8a8a; animation: santaPulse 1.1s ease-in-out infinite; }
+@keyframes santaPulse { 50% { filter: brightness(1.45); box-shadow: inset 0 0 26px rgba(255, 70, 70, .75); } }
+@media (prefers-reduced-motion: reduce) { .santa-bar.on { animation: none; } }
+</style>
+<script>
+(function () {
+  var bar = document.getElementById("santaBar");
+  if (!bar) return;
+  var cfg = { start: null, end: null, sites: [] };
+  var force = new URLSearchParams(location.search).get("santa");   // ?santa=1 로 12월 전에 붉은 신호를 미리 본다
+  fetch("santa.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (j) { cfg = j || cfg; draw(); }).catch(function () { draw(); });
+
+  function kstToday() { var k = new Date(Date.now() + 9 * 36e5); return Date.UTC(k.getUTCFullYear(), k.getUTCMonth(), k.getUTCDate()); }
+  function draw() {
+    var now = Date.now(), k = new Date(now + 9 * 36e5), year = k.getUTCFullYear();
+    var days = Math.round((Date.UTC(year, 11, 24) - kstToday()) / 864e5);
+    var start = cfg.start ? Date.parse(cfg.start) : NaN, end = cfg.end ? Date.parse(cfg.end) : (isFinite(start) ? start + 36 * 36e5 : NaN);
+    var active = force === "1" || (isFinite(start) && now >= start && now < end);
+    if (!active && (days < -1 || days > 60)) { bar.hidden = true; return; }   // 시즌이 아니면 숨긴다
+    var sites = (cfg.sites && cfg.sites.length) ? cfg.sites : [
+      { id: "norad", name: "NORAD 산타 트래커", url: "https://www.noradsanta.org/" },
+      { id: "google", name: "Google 산타 트래커", url: "https://santatracker.google.com/" }];
+    var msg;
+    if (active) msg = '🚨 <b>산타 출발!</b> 지금 지구를 돌며 선물을 나눠 주는 중이에요';
+    else if (days > 0) msg = '🎅 <b>산타 트래커</b> · 크리스마스 이브(12월 24일)까지 <b>D-' + days + '</b>' +
+      '<small>' + (isFinite(start) ? '출발 예정 ' + new Date(start).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }) + ' (한국 시간)' : '출발 시각은 공식 발표 후 알려 드려요') + '</small>';
+    else msg = '🎅 <b>산타 트래커</b> · 오늘은 크리스마스 이브예요 <small>출발 시각은 공식 사이트에서 확인하세요</small>';
+    var btns = sites.map(function (s, i) { return '<button type="button" data-santa="' + i + '">' + (i ? '🎄' : '🎅') + ' ' + s.name.replace(" 산타 트래커", "") + ' 트래커 열기</button>'; }).join("");
+    bar.className = "santa-bar" + (active ? " on" : "");
+    bar.innerHTML = '<span class="msg">' + msg + '</span><span class="btns">' + btns + '</span>';
+    bar.hidden = false;
+    bar.dataset.sites = JSON.stringify(sites);
+  }
+  bar.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-santa]"); if (!b) return;
+    var s = JSON.parse(bar.dataset.sites || "[]")[+b.dataset.santa];
+    if (s && window.swOpenSite) window.swOpenSite(s.name, s.url);
+  });
+  draw(); setInterval(draw, 60000);
 })();
 </script>
 </body>

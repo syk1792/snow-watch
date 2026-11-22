@@ -1,0 +1,9 @@
+{
+  "_설명": "산타 출발 신호 설정. start에 공식 시작 시각을 ISO 형식으로 넣으면 그 시각부터 end까지 관제실 위쪽 띠가 붉게 깜빡여요. 예: 2026-12-23T10:00:00Z. 비워 두면(null) 카운트다운만 보여요. 올해 시각은 NORAD가 12월 1일에 공식 발표한 뒤에 넣는다.",
+  "start": null,
+  "end": null,
+  "sites": [
+    { "id": "norad", "name": "NORAD 산타 트래커", "url": "https://www.noradsanta.org/" },
+    { "id": "google", "name": "Google 산타 트래커", "url": "https://santatracker.google.com/" }
+  ]
+}
