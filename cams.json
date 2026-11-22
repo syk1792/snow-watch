@@ -179,6 +179,39 @@
   "square": true
  },
  {
+  "id": "boyne-city",
+  "city": "보인 시티",
+  "country": "US",
+  "place": "다운타운 (Boyne City Webcam)",
+  "lat": 45.217,
+  "lon": -85.014,
+  "videoId": "44PAH-xI-uM",
+  "channelId": null,
+  "square": true
+ },
+ {
+  "id": "sturgis",
+  "city": "스터지스",
+  "country": "US",
+  "place": "메인 스트리트 (호텔 스터지스 앞, UDrive Tech)",
+  "lat": 44.4097,
+  "lon": -103.5091,
+  "videoId": "uu82CI54eJU",
+  "channelId": null,
+  "square": true
+ },
+ {
+  "id": "gramado",
+  "city": "그라마두",
+  "country": "BR",
+  "place": "시내 중심 (아베니다 다스 오르텐시아스 일대, Gramado TV)",
+  "lat": -29.3787,
+  "lon": -50.8737,
+  "videoId": "0tMTEejJwhc",
+  "channelId": null,
+  "square": true
+ },
+ {
   "id": "brussels",
   "type": "link",
   "city": "브뤼셀",

@@ -341,8 +341,8 @@ const WX = {
   71: "약한 눈", 73: "눈", 75: "폭설", 77: "싸락눈", 80: "소나기", 81: "소나기", 82: "강한 소나기",
   85: "약한 소낙눈", 86: "강한 소낙눈", 95: "뇌우", 96: "우박 뇌우", 99: "우박 뇌우",
 };
-const FLAG = { FI: "🇫🇮", DE: "🇩🇪", BE: "🇧🇪", NL: "🇳🇱", CH: "🇨🇭", HU: "🇭🇺", SI: "🇸🇮", EE: "🇪🇪", IE: "🇮🇪", CA: "🇨🇦", US: "🇺🇸", JP: "🇯🇵", AT: "🇦🇹", FR: "🇫🇷", CZ: "🇨🇿", PL: "🇵🇱", GB: "🇬🇧", DK: "🇩🇰", NO: "🇳🇴", SE: "🇸🇪", IT: "🇮🇹", LV: "🇱🇻", LT: "🇱🇹", KR: "🇰🇷" };
-const COUNTRY = { KR: "한국", JP: "일본", FI: "핀란드", DE: "독일", AT: "오스트리아", BE: "벨기에", NL: "네덜란드", CZ: "체코", CH: "스위스", FR: "프랑스", HU: "헝가리", SI: "슬로베니아", EE: "에스토니아", IE: "아일랜드", US: "미국", CA: "캐나다", PL: "폴란드", GB: "영국", DK: "덴마크", NO: "노르웨이", SE: "스웨덴", IT: "이탈리아", LV: "라트비아", LT: "리투아니아" };
+const FLAG = { FI: "🇫🇮", DE: "🇩🇪", BE: "🇧🇪", NL: "🇳🇱", CH: "🇨🇭", HU: "🇭🇺", SI: "🇸🇮", EE: "🇪🇪", IE: "🇮🇪", CA: "🇨🇦", US: "🇺🇸", BR: "🇧🇷", JP: "🇯🇵", AT: "🇦🇹", FR: "🇫🇷", CZ: "🇨🇿", PL: "🇵🇱", GB: "🇬🇧", DK: "🇩🇰", NO: "🇳🇴", SE: "🇸🇪", IT: "🇮🇹", LV: "🇱🇻", LT: "🇱🇹", KR: "🇰🇷" };
+const COUNTRY = { KR: "한국", JP: "일본", FI: "핀란드", DE: "독일", AT: "오스트리아", BE: "벨기에", NL: "네덜란드", CZ: "체코", CH: "스위스", FR: "프랑스", HU: "헝가리", SI: "슬로베니아", EE: "에스토니아", IE: "아일랜드", US: "미국", BR: "브라질", CA: "캐나다", PL: "폴란드", GB: "영국", DK: "덴마크", NO: "노르웨이", SE: "스웨덴", IT: "이탈리아", LV: "라트비아", LT: "리투아니아" };
 const flagOK = !/Windows/i.test(navigator.userAgent);   // 윈도우는 국기 이모지를 영문 두 글자(DE, US)로 보여 줘서 이름만 쓴다
 const flagOf = cam => (flagOK && FLAG[cam.country]) ? FLAG[cam.country] + " " : "";
 const placeName = cam => flagOf(cam) + (COUNTRY[cam.country] ? COUNTRY[cam.country] + " · " : "") + cam.city;
