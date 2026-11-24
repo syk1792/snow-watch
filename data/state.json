@@ -13,7 +13,7 @@
    "reason": null,
    "suspectWords": [],
    "camId": "jena",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "eger": {
    "videoId": "HKVZx5EdnIs",
@@ -23,12 +23,12 @@
    "channelId": "UCMvAap1Jacyg-4bqYKDlmtw",
    "startTimestamp": "2026-04-01T13:29:51Z",
    "endTimestamp": null,
-   "watching": "9",
+   "watching": "3",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "eger",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "oudenaarde": {
    "videoId": "TTrzSdVej30",
@@ -38,12 +38,12 @@
    "channelId": "UCPH1SsIWbdm59B0YVoqw8gQ",
    "startTimestamp": "2024-01-22T15:56:37Z",
    "endTimestamp": null,
-   "watching": "8",
+   "watching": "3",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "oudenaarde",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "leavenworth": {
    "videoId": "XjhxRZEm638",
@@ -53,12 +53,12 @@
    "channelId": "UCza48nR27_AEYbIbwMCOoFQ",
    "startTimestamp": "2023-01-09T19:23:28Z",
    "endTimestamp": null,
-   "watching": "12",
+   "watching": "17",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "leavenworth",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "leavenworth-kk": {
    "videoId": "TmtVbezZaqg",
@@ -68,12 +68,12 @@
    "channelId": "UCza48nR27_AEYbIbwMCOoFQ",
    "startTimestamp": "2020-11-18T23:53:50Z",
    "endTimestamp": null,
-   "watching": "20",
+   "watching": "100",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "leavenworth-kk",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "rovaniemi-walk": {
    "videoId": "quAzBLGq43M",
@@ -91,21 +91,21 @@
     "ambience"
    ],
    "camId": "rovaniemi-walk",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "vienna-rathaus": {
    "camId": "vienna-rathaus",
    "status": "fresh",
-   "takenAt": "2026-11-24T11:41:09+00:00",
-   "checkedAt": "2026-11-24T11:44:28+00:00",
-   "loggedAt": "2026-11-24T11:44:28+00:00"
+   "takenAt": "2026-11-24T19:40:11+00:00",
+   "checkedAt": "2026-11-24T21:34:20+00:00",
+   "loggedAt": "2026-11-24T21:34:20+00:00"
   },
   "dresden": {
    "camId": "dresden",
    "status": "fresh",
-   "takenAt": "2026-11-24T11:42:26+00:00",
-   "checkedAt": "2026-11-24T11:44:28+00:00",
-   "loggedAt": "2026-11-24T11:44:28+00:00"
+   "takenAt": "2026-11-24T19:41:26+00:00",
+   "checkedAt": "2026-11-24T21:34:20+00:00",
+   "loggedAt": "2026-11-24T21:34:20+00:00"
   },
   "seoul-gyeongbok": {
    "videoId": "IcTMxC_k57A",
@@ -115,12 +115,12 @@
    "channelId": "UCsy6UOjk8q7Ajq9yQ7iDAbA",
    "startTimestamp": "2026-10-21T08:22:02Z",
    "endTimestamp": null,
-   "watching": "17",
+   "watching": "9",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "seoul-gyeongbok",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "sapporo-odori": {
    "videoId": "RBHsITnIoI0",
@@ -130,12 +130,12 @@
    "channelId": "UCaHr0a1x8zmQ1dxanCeuesA",
    "startTimestamp": "2025-09-01T08:35:21Z",
    "endTimestamp": null,
-   "watching": "5",
+   "watching": "3",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "sapporo-odori",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "kusatsu": {
    "videoId": "caahuMvVxsw",
@@ -145,12 +145,12 @@
    "channelId": "UCbLm5pG7JURHymVMcISf6_g",
    "startTimestamp": "2026-10-28T05:59:28Z",
    "endTimestamp": null,
-   "watching": "170",
+   "watching": "100",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "kusatsu",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "rovaniemi": {
    "videoId": "Cp4RRAEgpeU",
@@ -160,12 +160,12 @@
    "channelId": "UCuarPSgSklrmX2z0iA-Ua4Q",
    "startTimestamp": "2020-01-29T06:36:37Z",
    "endTimestamp": null,
-   "watching": "288",
+   "watching": "128",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "rovaniemi",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "levi": {
    "videoId": "EmoTKMm5sDI",
@@ -175,12 +175,12 @@
    "channelId": "UC5uIaptUbZap8eF6BlpxohA",
    "startTimestamp": "2025-08-05T08:20:59Z",
    "endTimestamp": null,
-   "watching": "3",
+   "watching": "1",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "levi",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "turku": {
    "videoId": "KLQLeZ9vjt4",
@@ -190,12 +190,12 @@
    "channelId": "UCPvs-mrFpJ5MYV6FeAtvc-w",
    "startTimestamp": "2026-03-10T13:27:31Z",
    "endTimestamp": null,
-   "watching": "26",
+   "watching": "12",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "turku",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "joensuu": {
    "videoId": "yA4aFD0AjDs",
@@ -205,12 +205,12 @@
    "channelId": "UCM6yIC4xZRwnLoqa3O2LQNA",
    "startTimestamp": "2020-02-19T06:51:32Z",
    "endTimestamp": null,
-   "watching": "3",
+   "watching": "5",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "joensuu",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "munich": {
    "videoId": "VAS9A0LRGHA",
@@ -220,12 +220,12 @@
    "channelId": "UCg-GhKaU1CWgN90z4o3Xq4w",
    "startTimestamp": "2026-10-12T05:44:39Z",
    "endTimestamp": null,
-   "watching": "40",
+   "watching": "27",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "munich",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "cologne": {
    "videoId": "u3pwYYYeDKE",
@@ -240,7 +240,7 @@
    "reason": null,
    "suspectWords": [],
    "camId": "cologne",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "bremen": {
    "videoId": "SsyiWrkUjy4",
@@ -250,12 +250,12 @@
    "channelId": "UCwoFc3WD54Kz67h99GauhUA",
    "startTimestamp": "2025-08-29T09:55:37Z",
    "endTimestamp": null,
-   "watching": "7",
+   "watching": "1",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "bremen",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "hildesheim": {
    "videoId": "671yJ4jELFg",
@@ -265,12 +265,12 @@
    "channelId": "UCaBnz71URU0bZ7nO2qsexfQ",
    "startTimestamp": "2026-04-14T14:50:15Z",
    "endTimestamp": null,
-   "watching": "21",
+   "watching": "8",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "hildesheim",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "sint-niklaas": {
    "videoId": "7gOLLJGudNo",
@@ -280,12 +280,12 @@
    "channelId": "UCAFBsuz-BuuSGW4qmMv4suQ",
    "startTimestamp": "2025-07-16T08:00:37Z",
    "endTimestamp": null,
-   "watching": "9",
+   "watching": "4",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "sint-niklaas",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "sittard": {
    "videoId": "GvPyyntKyCY",
@@ -295,12 +295,12 @@
    "channelId": "UCLY9p4l5JT4U0RyxaCKuqQQ",
    "startTimestamp": "2026-05-22T12:00:08Z",
    "endTimestamp": null,
-   "watching": "10",
+   "watching": "9",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "sittard",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "badenbaden": {
    "videoId": "JBKs0WYlbHQ",
@@ -310,12 +310,12 @@
    "channelId": "UCK_2jzTMkgBMalwh49VFh1Q",
    "startTimestamp": "2022-08-15T09:24:39Z",
    "endTimestamp": null,
-   "watching": "1",
+   "watching": "2",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "badenbaden",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "munster-fr": {
    "videoId": "Uf4RBbIvbFQ",
@@ -325,12 +325,12 @@
    "channelId": "UCdUEtltKWRIV8hV-QoSXedQ",
    "startTimestamp": "2026-09-03T05:54:10Z",
    "endTimestamp": null,
-   "watching": "4",
+   "watching": "2",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "munster-fr",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "basel": {
    "videoId": "jtLh8BdmHUU",
@@ -345,7 +345,7 @@
    "reason": null,
    "suspectWords": [],
    "camId": "basel",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "luzern": {
    "videoId": "QIt1FaDMnQc",
@@ -355,12 +355,12 @@
    "channelId": "UCPXrtNyzerjndFhzPyJD7vA",
    "startTimestamp": "2023-06-11T14:05:27Z",
    "endTimestamp": null,
-   "watching": "25",
+   "watching": "6",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "luzern",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "stmoritz": {
    "videoId": "9b5evZuY47c",
@@ -370,12 +370,12 @@
    "channelId": "UCq6KD9VBqDc2D6VYJzz7ajw",
    "startTimestamp": "2026-07-29T07:59:52Z",
    "endTimestamp": null,
-   "watching": "9",
+   "watching": "2",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "stmoritz",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "prague": {
    "videoId": "kvYMIaXclIE",
@@ -385,12 +385,12 @@
    "channelId": "UCs8QCDKYww0gFmZkJ3JHiBQ",
    "startTimestamp": "2026-09-30T07:45:31Z",
    "endTimestamp": null,
-   "watching": "4",
+   "watching": "1",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "prague",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "kranjska": {
    "videoId": "-Huu1iNTpfk",
@@ -400,12 +400,12 @@
    "channelId": "UC8V1W5qNE8s3vgQWEQHpsKQ",
    "startTimestamp": "2025-06-24T07:05:16Z",
    "endTimestamp": null,
-   "watching": "10",
+   "watching": "5",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "kranjska",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "amsterdam": {
    "videoId": "Gd9d4q6WvUY",
@@ -415,12 +415,12 @@
    "channelId": "UCWsoep0hJKhGbYosMeQIyXA",
    "startTimestamp": "2024-01-11T14:12:34Z",
    "endTimestamp": null,
-   "watching": "121",
+   "watching": "84",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "amsterdam",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "groningen": {
    "videoId": "ZjfFGJlkjmE",
@@ -430,12 +430,12 @@
    "channelId": "UCoGAnM2Ek-KVDEQiyuN_XGg",
    "startTimestamp": "2020-06-03T13:27:47Z",
    "endTimestamp": null,
-   "watching": "41",
+   "watching": "17",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "groningen",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "tallinn": {
    "videoId": "VhVgZi2lGv0",
@@ -445,12 +445,12 @@
    "channelId": "UCQVre66peaZxhdvfIE1Ahxw",
    "startTimestamp": "2023-11-22T11:17:00Z",
    "endTimestamp": null,
-   "watching": "15",
+   "watching": "18",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "tallinn",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "dublin": {
    "videoId": "3nyPER2kzqk",
@@ -460,12 +460,12 @@
    "channelId": "UC6qrG3W8SMK0jior2olka3g",
    "startTimestamp": "2026-02-28T12:32:37Z",
    "endTimestamp": null,
-   "watching": "211",
+   "watching": "227",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "dublin",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "jackson": {
    "videoId": "1EiC9bvVGnk",
@@ -475,12 +475,12 @@
    "channelId": "UCEpDjqeFIGTqHwk-uULx72Q",
    "startTimestamp": "2018-12-23T17:40:09Z",
    "endTimestamp": null,
-   "watching": "99",
+   "watching": "140",
    "playableInEmbed": false,
    "reason": null,
    "suspectWords": [],
    "camId": "jackson",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "newburyport": {
    "videoId": "VsuSbXPN93o",
@@ -490,12 +490,12 @@
    "channelId": "UCvB8asb1Wbc-Mur7oIZ3TxA",
    "startTimestamp": "2023-07-19T18:21:13Z",
    "endTimestamp": null,
-   "watching": "16",
+   "watching": "23",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "newburyport",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "whistler": {
    "videoId": "IEhDUXECe_k",
@@ -505,12 +505,12 @@
    "channelId": "UCtUyw9nTFtCCg-RPA4c8cDg",
    "startTimestamp": "2024-04-28T23:29:28Z",
    "endTimestamp": null,
-   "watching": "1",
+   "watching": "37",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "whistler",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "canmore": {
    "videoId": "_0wPODlF9wU",
@@ -520,12 +520,12 @@
    "channelId": "UCSB3xOs0FgIW0uqKTqoXqhg",
    "startTimestamp": "2024-03-07T18:39:00Z",
    "endTimestamp": null,
-   "watching": "10",
+   "watching": "44",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "canmore",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "collingwood": {
    "videoId": "EPKWu223XEg",
@@ -535,12 +535,12 @@
    "channelId": "UCY8S0Pa6lQKzvlrY87ki6sQ",
    "startTimestamp": "2020-10-14T13:02:08Z",
    "endTimestamp": null,
-   "watching": "12",
+   "watching": "8",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "collingwood",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "nyc": {
    "videoId": "VGnFLdQW39A",
@@ -550,12 +550,12 @@
    "channelId": "UCIjSUWHWp6KohfnR5OQTXnQ",
    "startTimestamp": "2025-09-29T20:19:32Z",
    "endTimestamp": null,
-   "watching": "107",
+   "watching": "109",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "nyc",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "bryant-park": {
    "videoId": "huYIgYbYQgM",
@@ -565,12 +565,12 @@
    "channelId": "UC6AlfoRUeH4B1an_R5YSSTw",
    "startTimestamp": "2026-10-28T15:21:38Z",
    "endTimestamp": null,
-   "watching": "75",
+   "watching": "298",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "bryant-park",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "worldcam-relay": {
    "videoId": "HuP9HDzVJi8",
@@ -580,7 +580,7 @@
    "channelId": "UCNrGOnduIS9BXIRmDcHasZA",
    "startTimestamp": "2026-10-18T23:27:39Z",
    "endTimestamp": null,
-   "watching": "639",
+   "watching": "1104",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [
@@ -588,7 +588,7 @@
     "relax"
    ],
    "camId": "worldcam-relay",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "trap-paris": {
    "videoId": "lBmk_v-mLp4",
@@ -605,7 +605,7 @@
     "walk"
    ],
    "camId": "trap-paris",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "boyne-city": {
    "videoId": "44PAH-xI-uM",
@@ -615,12 +615,12 @@
    "channelId": "UCosmd4jAUlDPbJhi_gwUgZA",
    "startTimestamp": "2025-08-25T03:43:46Z",
    "endTimestamp": null,
-   "watching": "1",
+   "watching": null,
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "boyne-city",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "sturgis": {
    "videoId": "uu82CI54eJU",
@@ -630,12 +630,12 @@
    "channelId": "UCTkxSTO0A1d5_6_Nc4sVYtg",
    "startTimestamp": "2024-11-04T17:44:21Z",
    "endTimestamp": null,
-   "watching": "13",
+   "watching": "26",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "sturgis",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   },
   "gramado": {
    "videoId": "0tMTEejJwhc",
@@ -645,50 +645,50 @@
    "channelId": "UClkczhHdkCogS9eXg2E5s0w",
    "startTimestamp": "2026-10-13T14:32:24Z",
    "endTimestamp": null,
-   "watching": "9",
+   "watching": "7",
    "playableInEmbed": true,
    "reason": null,
    "suspectWords": [],
    "camId": "gramado",
-   "checkedAt": "2026-11-24T11:40:56+00:00"
+   "checkedAt": "2026-11-24T21:34:04+00:00"
   }
  },
  "weather": {
   "seoul-gyeongbok": {
-   "t": -0.1,
+   "t": -4.9,
    "code": 0,
-   "isDay": 1,
+   "isDay": 0,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": 32400,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "sapporo-odori": {
-   "t": 8.0,
-   "code": 53,
-   "isDay": 1,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0.2,
-   "rain": 0.1,
-   "utcOffset": 32400,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
-  },
-  "kusatsu": {
-   "t": 9.3,
+   "t": -3.2,
    "code": 1,
-   "isDay": 1,
+   "isDay": 0,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": 32400,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
+  },
+  "kusatsu": {
+   "t": -2.3,
+   "code": 1,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0.01,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 32400,
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "rovaniemi": {
-   "t": -8.4,
+   "t": -9.6,
    "code": 0,
    "isDay": 0,
    "snowfall": 0,
@@ -696,10 +696,10 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 7200,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "levi": {
-   "t": -4.8,
+   "t": -6.2,
    "code": 3,
    "isDay": 0,
    "snowfall": 0,
@@ -707,43 +707,43 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 7200,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "turku": {
-   "t": -1.0,
-   "code": 3,
+   "t": -1.5,
+   "code": 0,
    "isDay": 0,
    "snowfall": 0,
    "depth": 0.01,
    "precip": 0,
    "rain": 0,
    "utcOffset": 7200,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "joensuu": {
-   "t": 0.3,
+   "t": -0.8,
    "code": 3,
    "isDay": 0,
    "snowfall": 0,
-   "depth": 0.05,
+   "depth": 0.04,
    "precip": 0,
    "rain": 0,
    "utcOffset": 7200,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "munich": {
-   "t": -1.4,
-   "code": 1,
+   "t": -2.0,
+   "code": 3,
    "isDay": 0,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "vienna-rathaus": {
-   "t": 0.2,
+   "t": -0.6,
    "code": 0,
    "isDay": 0,
    "snowfall": 0,
@@ -751,21 +751,32 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "nuremberg": {
-   "t": -2.9,
-   "code": 1,
+   "t": -2.8,
+   "code": 0,
    "isDay": 0,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "dresden": {
-   "t": 0.5,
+   "t": 0.7,
+   "code": 0,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
+  },
+  "cologne": {
+   "t": 0.6,
    "code": 3,
    "isDay": 0,
    "snowfall": 0,
@@ -773,20 +784,163 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
-  "cologne": {
-   "t": -0.1,
-   "code": 2,
+  "bremen": {
+   "t": -3.3,
+   "code": 45,
    "isDay": 0,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
-  "bremen": {
+  "hildesheim": {
+   "t": -1.5,
+   "code": 1,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
+  },
+  "sint-niklaas": {
+   "t": -0.6,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
+  },
+  "sittard": {
+   "t": -0.9,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
+  },
+  "brussels": {
+   "t": -0.1,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
+  },
+  "prague-ots": {
+   "t": 0.1,
+   "code": 1,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "zurich": {
+   "t": 2.2,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "jena": {
+   "t": -2.1,
+   "code": 0,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "badenbaden": {
+   "t": 2.0,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "munster-fr": {
+   "t": 1.9,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "basel": {
+   "t": 4.0,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "luzern": {
+   "t": 3.8,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "stmoritz": {
+   "t": -6.4,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0.14,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "prague": {
+   "t": 0.2,
+   "code": 1,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "eger": {
    "t": -0.5,
    "code": 0,
    "isDay": 0,
@@ -795,10 +949,32 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
   },
-  "hildesheim": {
-   "t": 1.4,
+  "kranjska": {
+   "t": -3.5,
+   "code": 45,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "oudenaarde": {
+   "t": -0.0,
+   "code": 3,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": 3600,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "amsterdam": {
+   "t": 1.6,
    "code": 2,
    "isDay": 0,
    "snowfall": 0,
@@ -806,197 +982,21 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
-  },
-  "sint-niklaas": {
-   "t": -1.5,
-   "code": 3,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
-  },
-  "sittard": {
-   "t": -1.0,
-   "code": 1,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
-  },
-  "brussels": {
-   "t": -1.4,
-   "code": 1,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
-  },
-  "prague-ots": {
-   "t": -0.0,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "zurich": {
-   "t": 2.6,
-   "code": 45,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "jena": {
-   "t": 0.2,
-   "code": 3,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "badenbaden": {
-   "t": -1.9,
-   "code": 1,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "munster-fr": {
-   "t": 0.7,
-   "code": 3,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "basel": {
-   "t": 3.2,
-   "code": 51,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "luzern": {
-   "t": 2.7,
-   "code": 45,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "stmoritz": {
-   "t": -5.5,
-   "code": 1,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0.16,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "prague": {
-   "t": 0.1,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "eger": {
-   "t": -0.7,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "kranjska": {
-   "t": -1.8,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "oudenaarde": {
-   "t": -1.5,
-   "code": 3,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "amsterdam": {
-   "t": -0.3,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
   },
   "groningen": {
-   "t": 1.0,
-   "code": 0,
+   "t": -0.1,
+   "code": 3,
    "isDay": 0,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
   },
   "tallinn": {
-   "t": 2.9,
+   "t": 3.0,
    "code": 3,
    "isDay": 0,
    "snowfall": 0,
@@ -1004,120 +1004,120 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 7200,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
   },
   "dublin": {
-   "t": 11.3,
-   "code": 3,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": 0,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "leavenworth": {
-   "t": 1.9,
-   "code": 2,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": -28800,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "leavenworth-kk": {
-   "t": 1.9,
-   "code": 2,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": -28800,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "jackson": {
-   "t": -3.5,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": -25200,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "newburyport": {
-   "t": 8.8,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": -18000,
-   "fetchedAt": "2026-11-24T01:51:29+00:00"
-  },
-  "whistler": {
-   "t": 3.8,
-   "code": 3,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": -25200,
-   "fetchedAt": "2026-11-24T01:51:30+00:00"
-  },
-  "canmore": {
-   "t": -4.2,
-   "code": 0,
-   "isDay": 0,
-   "snowfall": 0,
-   "depth": 0.02,
-   "precip": 0,
-   "rain": 0,
-   "utcOffset": -21600,
-   "fetchedAt": "2026-11-24T01:51:30+00:00"
-  },
-  "collingwood": {
-   "t": 1.7,
+   "t": 8.6,
    "code": 51,
    "isDay": 0,
    "snowfall": 0,
    "depth": 0,
    "precip": 0.1,
    "rain": 0.1,
+   "utcOffset": 0,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "leavenworth": {
+   "t": 3.3,
+   "code": 51,
+   "isDay": 1,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0.1,
+   "rain": 0.1,
+   "utcOffset": -28800,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "leavenworth-kk": {
+   "t": 3.3,
+   "code": 51,
+   "isDay": 1,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0.1,
+   "rain": 0.1,
+   "utcOffset": -28800,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "jackson": {
+   "t": 2.7,
+   "code": 0,
+   "isDay": 1,
+   "snowfall": 0,
+   "depth": 0.02,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": -25200,
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "newburyport": {
+   "t": 2.3,
+   "code": 0,
+   "isDay": 0,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
    "utcOffset": -18000,
-   "fetchedAt": "2026-11-24T01:51:30+00:00"
+   "fetchedAt": "2026-11-24T21:34:16+00:00"
+  },
+  "whistler": {
+   "t": 6.0,
+   "code": 61,
+   "isDay": 1,
+   "snowfall": 0,
+   "depth": 0.01,
+   "precip": 0.4,
+   "rain": 0.4,
+   "utcOffset": -25200,
+   "fetchedAt": "2026-11-24T21:34:17+00:00"
+  },
+  "canmore": {
+   "t": 4.9,
+   "code": 3,
+   "isDay": 1,
+   "snowfall": 0,
+   "depth": 0.01,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": -21600,
+   "fetchedAt": "2026-11-24T21:34:17+00:00"
+  },
+  "collingwood": {
+   "t": -0.1,
+   "code": 3,
+   "isDay": 1,
+   "snowfall": 0,
+   "depth": 0,
+   "precip": 0,
+   "rain": 0,
+   "utcOffset": -18000,
+   "fetchedAt": "2026-11-24T21:34:17+00:00"
   },
   "nyc": {
-   "t": 10.1,
-   "code": 3,
-   "isDay": 0,
+   "t": 6.5,
+   "code": 0,
+   "isDay": 1,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": -18000,
-   "fetchedAt": "2026-11-24T01:51:30+00:00"
+   "fetchedAt": "2026-11-24T21:34:17+00:00"
   },
   "bryant-park": {
-   "t": 10.8,
-   "code": 3,
-   "isDay": 0,
+   "t": 7.2,
+   "code": 0,
+   "isDay": 1,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": -18000,
-   "fetchedAt": "2026-11-24T01:51:30+00:00"
+   "fetchedAt": "2026-11-24T21:34:17+00:00"
   },
   "rovaniemi-walk": {
-   "t": -8.4,
+   "t": -9.6,
    "code": 0,
    "isDay": 0,
    "snowfall": 0,
@@ -1125,10 +1125,10 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 7200,
-   "fetchedAt": "2026-11-24T01:51:30+00:00"
+   "fetchedAt": "2026-11-24T21:34:17+00:00"
   },
   "trap-paris": {
-   "t": 2.7,
+   "t": 5.4,
    "code": 3,
    "isDay": 0,
    "snowfall": 0,
@@ -1136,40 +1136,40 @@
    "precip": 0,
    "rain": 0,
    "utcOffset": 3600,
-   "fetchedAt": "2026-11-24T01:51:30+00:00"
+   "fetchedAt": "2026-11-24T21:34:17+00:00"
   },
   "boyne-city": {
-   "t": -0.8,
+   "t": 1.7,
    "code": 3,
-   "isDay": 0,
+   "isDay": 1,
    "snowfall": 0,
-   "depth": 0.01,
+   "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": -18000,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "sturgis": {
-   "t": -1.2,
-   "code": 3,
-   "isDay": 0,
+   "t": 5.8,
+   "code": 0,
+   "isDay": 1,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": -25200,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   },
   "gramado": {
    "t": 17.1,
-   "code": 1,
-   "isDay": 0,
+   "code": 3,
+   "isDay": 1,
    "snowfall": 0,
    "depth": 0,
    "precip": 0,
    "rain": 0,
    "utcOffset": -10800,
-   "fetchedAt": "2026-11-24T01:51:27+00:00"
+   "fetchedAt": "2026-11-24T21:34:05+00:00"
   }
  },
  "obs": {
@@ -1177,1048 +1177,1048 @@
    "icao": "RKSS",
    "name": "Seoul/Gimpo Intl",
    "km": 17,
-   "time": "2026-11-24T11:00:00+00:00",
+   "time": "2026-11-24T21:00:00+00:00",
    "wx": "",
    "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
-   "t": -3,
-   "raw": "METAR RKSS 241100Z 32006KT CAVOK M03/M10 Q1026 NOSIG"
+   "t": -5,
+   "raw": "METAR RKSS 242100Z 19001KT CAVOK M05/M05 Q1024 NOSIG"
   },
   "sapporo-odori": {
    "icao": "RJCC",
    "name": "Sapporo/Chitose Arpt",
    "km": 42,
-   "time": "2026-11-24T11:30:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR RJCC 241130Z 15003KT 110V230 9999 FEW035 BKN120 01/00 Q1000"
-  },
-  "kusatsu": {
-   "icao": "RJTY",
-   "name": "Yokota",
-   "km": 118,
-   "time": "2026-11-24T10:55:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 11,
-   "raw": "METAR RJTY 241055Z 00000KT 10SM FEW038 BKN140 11/09 A2961 RMK AO2A SLP032 T01100093 $"
-  },
-  "rovaniemi": {
-   "icao": "EFRO",
-   "name": "Rovaniemi Arpt",
-   "km": 2,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": -6,
-   "raw": "METAR EFRO 241120Z AUTO 33005KT 9999 4200 BKN019 BKN038 M06/M06 Q1026"
-  },
-  "levi": {
-   "icao": "EFKT",
-   "name": "Kittilä Arpt",
-   "km": 12,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": -5,
-   "raw": "METAR EFKT 241120Z AUTO VRB02KT CAVOK M05/M07 Q1027"
-  },
-  "turku": {
-   "icao": "EFTU",
-   "name": "Turku Arpt",
-   "km": 7,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": -2,
-   "raw": "METAR EFTU 241120Z AUTO 03008KT 350V060 9999 OVC011 M02/M04 Q1020"
-  },
-  "joensuu": {
-   "icao": "EFJO",
-   "name": "Joensuu Arpt",
-   "km": 10,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "-RA",
-   "label": "약한 비",
-   "snow": false,
-   "rain": true,
-   "t": 0,
-   "raw": "METAR EFJO 241120Z AUTO 02010KT 330V060 9999 -RA OVC011 00/M02 Q1018"
-  },
-  "munich": {
-   "icao": "EDMO",
-   "name": "Oberpfaffenhofe Arpt",
-   "km": 23,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 2,
-   "raw": "METAR EDMO 241120Z AUTO 11008KT CAVOK 02/M05 Q1024"
-  },
-  "vienna-rathaus": {
-   "icao": "LOWW",
-   "name": "Vienna Intl",
-   "km": 20,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 4,
-   "raw": "METAR LOWW 241120Z 31013KT CAVOK 04/M06 Q1026 NOSIG"
-  },
-  "nuremberg": {
-   "icao": "EDDN",
-   "name": "Nurnberg Arpt",
-   "km": 6,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 2,
-   "raw": "METAR EDDN 241120Z AUTO 14004KT 110V180 CAVOK 02/M04 Q1026 NOSIG"
-  },
-  "dresden": {
-   "icao": "EDDC",
-   "name": "Dresden Arpt",
-   "km": 9,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR EDDC 241120Z AUTO 28006KT 240V320 9999 OVC030 01/M03 Q1026 NOSIG"
-  },
-  "cologne": {
-   "icao": "EDDK",
-   "name": "Koln-Bonn Arpt",
-   "km": 16,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 2,
-   "raw": "METAR EDDK 241120Z AUTO 12007KT 080V150 CAVOK 02/M03 Q1025 NOSIG"
-  },
-  "bremen": {
-   "icao": "EDDW",
-   "name": "Bremen Arpt",
-   "km": 3,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "FZFG",
-   "label": "안개",
-   "snow": false,
-   "rain": false,
-   "t": -1,
-   "raw": "METAR EDDW 241120Z AUTO VRB02KT 0350 R26/0500D FZFG VV002 M01/M01 Q1027 TEMPO 0800 FG BKN001"
-  },
-  "hildesheim": {
-   "icao": "EDDV",
-   "name": "Hannover Arpt",
-   "km": 40,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR EDDV 241120Z AUTO 05003KT 020V100 9000 FEW004 01/M00 Q1027 TEMPO 4500 BR BKN004"
-  },
-  "sint-niklaas": {
-   "icao": "EBAW",
-   "name": "Antwerp Intl",
-   "km": 22,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 0,
-   "raw": "METAR EBAW 241120Z 10006KT CAVOK M00/M02 Q1024 NOSIG"
-  },
-  "sittard": {
-   "icao": "ETNG",
-   "name": "Geilenkirchen",
-   "km": 12,
-   "time": "2026-11-24T10:50:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 0,
-   "raw": "METAR ETNG 241050Z 09011KT CAVOK 00/M02 Q1024 NOSIG"
-  },
-  "brussels": {
-   "icao": "EBBR",
-   "name": "Brussels Intl",
-   "km": 13,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 0,
-   "raw": "METAR EBBR 241120Z 11008KT CAVOK 00/M03 Q1023 NOSIG"
-  },
-  "prague-ots": {
-   "icao": "LKKB",
-   "name": "Prague/Kbely Arpt",
-   "km": 9,
-   "time": "2026-11-24T11:00:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR LKKB 241100Z 25008KT 9999 BKN031 01/M05 Q1026 NOSIG"
-  },
-  "zurich": {
-   "icao": "LSMD",
-   "name": "Dübendorf Arpt",
-   "km": 9,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 5,
-   "raw": "METAR LSMD 241120Z AUTO 11008KT 060V140 9999NDV FEW013 BKN023 BKN210 05/02 Q1022 RMK"
-  },
-  "jena": {
-   "icao": "EDDE",
-   "name": "Erfurt Arpt",
-   "km": 44,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR EDDE 241120Z AUTO VRB02KT 9999 FEW013 BKN028 01/M02 Q1026 TEMPO BKN014"
-  },
-  "badenbaden": {
-   "icao": "EDSB",
-   "name": "Baden Arpt",
-   "km": 12,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 3,
-   "raw": "METAR EDSB 241120Z AUTO 02007KT CAVOK 03/M00 Q1024"
-  },
-  "munster-fr": {
-   "icao": "LFGA",
-   "name": "Colmar/Houssen Arpt",
-   "km": 18,
-   "time": "2026-11-24T11:30:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 4,
-   "raw": "METAR LFGA 241130Z AUTO 36003KT 280V070 CAVOK 04/01 Q1023"
-  },
-  "basel": {
-   "icao": "LFSB",
-   "name": "Basel/Euro Arpt",
-   "km": 8,
-   "time": "2026-11-24T11:30:00+00:00",
-   "wx": "BR",
-   "label": "박무",
-   "snow": false,
-   "rain": false,
-   "t": 4,
-   "raw": "METAR LFSB 241130Z AUTO 35008KT 4800 BR BKN003 BKN024 OVC028 04/04 Q1022 BECMG 9999 NSW SCT005 BKN025"
-  },
-  "luzern": {
-   "icao": "LSME",
-   "name": "Emmen Arpt",
-   "km": 5,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 5,
-   "raw": "METAR LSME 241120Z AUTO 04004KT 010V080 9999NDV FEW010 BKN013 OVC016 05/03 Q1022 RMK"
-  },
-  "stmoritz": {
-   "icao": "LSZS",
-   "name": "Samedan Arpt",
-   "km": 4,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": -5,
-   "raw": "METAR LSZS 241120Z 00000KT CAVOK M05/M06 Q1021 RMK J TRL170"
-  },
-  "prague": {
-   "icao": "LKKB",
-   "name": "Prague/Kbely Arpt",
-   "km": 10,
-   "time": "2026-11-24T11:00:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR LKKB 241100Z 25008KT 9999 BKN031 01/M05 Q1026 NOSIG"
-  },
-  "eger": {
-   "icao": "LHSN",
-   "name": "Szolnok",
-   "km": 87,
-   "time": "2026-11-24T11:15:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 4,
-   "raw": "METAR LHSN 241115Z 26014KT 230V290 9999 FEW030 04/M04 Q1024 NOSIG RMK BLU"
-  },
-  "kranjska": {
-   "icao": "LOWK",
-   "name": "Klagenfurt Arpt",
-   "km": 45,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 2,
-   "raw": "METAR LOWK 241120Z AUTO VRB02KT 9999 FEW018 SCT019 02/M03 Q1026 NOSIG"
-  },
-  "oudenaarde": {
-   "icao": "LFQQ",
-   "name": "Lille/Lesquin Arpt",
-   "km": 48,
-   "time": "2026-11-24T11:30:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 3,
-   "raw": "METAR LFQQ 241130Z AUTO 11008KT CAVOK 03/00 Q1021 TEMPO BKN014"
-  },
-  "amsterdam": {
-   "icao": "EHAM",
-   "name": "Amsterdam/Schiphol Arpt",
-   "km": 10,
-   "time": "2026-11-24T11:25:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR EHAM 241125Z 13007KT 100V160 CAVOK 01/M03 Q1025 NOSIG"
-  },
-  "groningen": {
-   "icao": "EHGG",
-   "name": "Groningen Arpt",
-   "km": 11,
-   "time": "2026-11-24T11:25:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 3,
-   "raw": "METAR EHGG 241125Z AUTO VRB02KT 9999 NCD 03/M01 Q1026 NOSIG"
-  },
-  "tallinn": {
-   "icao": "EETN",
-   "name": "Tallin Arpt",
-   "km": 4,
-   "time": "2026-11-24T11:20:00+00:00",
-   "wx": "-RA",
-   "label": "약한 비",
-   "snow": false,
-   "rain": true,
-   "t": 2,
-   "raw": "METAR EETN 241120Z 03013G23KT 9999 -RA BKN014 OVC020 02/00 Q1016 NOSIG"
-  },
-  "dublin": {
-   "icao": "EIDW",
-   "name": "Dublin Arpt",
-   "km": 9,
-   "time": "2026-11-24T11:30:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 8,
-   "raw": "METAR EIDW 241130Z 27008KT 230V290 9999 FEW007 BKN008 08/06 Q1007 TEMPO SCT012"
-  },
-  "leavenworth": {
-   "icao": "KEAT",
-   "name": "Wenatchee/Pangborn Mem",
-   "km": 41,
-   "time": "2026-11-24T10:55:00+00:00",
-   "wx": "-RA",
-   "label": "약한 비",
-   "snow": false,
-   "rain": true,
-   "t": 3.3,
-   "raw": "METAR KEAT 241055Z AUTO 00000KT 10SM -RA OVC019 03/01 A3021 RMK AO2 RAB45 SLP239 P0000 T00330006"
-  },
-  "leavenworth-kk": {
-   "icao": "KEAT",
-   "name": "Wenatchee/Pangborn Mem",
-   "km": 41,
-   "time": "2026-11-24T10:55:00+00:00",
-   "wx": "-RA",
-   "label": "약한 비",
-   "snow": false,
-   "rain": true,
-   "t": 3.3,
-   "raw": "METAR KEAT 241055Z AUTO 00000KT 10SM -RA OVC019 03/01 A3021 RMK AO2 RAB45 SLP239 P0000 T00330006"
-  },
-  "jackson": {
-   "icao": "KJAC",
-   "name": "Jackson Hole Arpt",
-   "km": 15,
-   "time": "2026-11-24T03:57:00+00:00",
+   "time": "2026-11-24T21:00:00+00:00",
    "wx": "",
    "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
    "t": -4,
-   "raw": "METAR KJAC 240357Z 01004KT 10SM OVC045 M04/M06 A3029"
+   "raw": "METAR RJCC 242100Z 20001KT 9999 FEW010 M04/M07 Q1003"
   },
-  "newburyport": {
-   "icao": "KLWM",
-   "name": "Lawrence Muni",
-   "km": 23,
-   "time": "2026-11-24T10:54:00+00:00",
+  "kusatsu": {
+   "icao": "RJTY",
+   "name": "Yokota",
+   "km": 118,
+   "time": "2026-11-24T20:55:00+00:00",
    "wx": "",
    "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
-   "t": 2.2,
-   "raw": "METAR KLWM 241054Z AUTO 00000KT 10SM FEW065 02/M02 A3014 RMK AO2 SLP207 T00221017"
+   "t": 4.9,
+   "raw": "METAR RJTY 242055Z AUTO 31005KT 10SM CLR 05/01 A2987 RMK AO2 SLP121 T00490014 52044 $"
   },
-  "whistler": {
-   "icao": "CWAE",
-   "name": "Whistler",
-   "km": 1,
-   "time": "2026-11-24T00:00:00+00:00",
-   "wx": "-SN",
-   "label": "약한 눈",
-   "snow": true,
-   "rain": false,
-   "t": 1,
-   "raw": "METAR CWAE 240000Z 32002KT 2SM -SN SCT013 BKN034 BKN058 OVC120 01/M00 A3000 RMK SN2SC1SC2SC2AS1 LAST OBS/NXT 241400Z WIND EST SLP183"
-  },
-  "canmore": {
-   "icao": "CWZG",
-   "name": "Banff ",
-   "km": 18,
-   "time": "2026-11-24T11:00:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": -4.5,
-   "raw": "METAR CWZG 241100Z AUTO 23008KT M05/M08 RMK AO1 SOG 02 3007 SLP258 T10451075"
-  },
-  "collingwood": {
-   "icao": "CXET",
-   "name": "Egbert CS",
-   "km": 46,
-   "time": "2026-11-24T11:00:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": -3.2,
-   "raw": "METAR CXET 241100Z AUTO 10001KT M03/M03 RMK AO1 7PAST HR SOG 08 3024 SLP298 P0003 T10321032 50036"
-  },
-  "nyc": {
-   "icao": "KNYC",
-   "name": "New York/Central Park",
-   "km": 3,
-   "time": "2026-11-24T10:51:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 6.1,
-   "raw": "METAR KNYC 241051Z AUTO 28004KT 10SM CLR 06/M02 A3024 RMK AO2 SLP232 T00611017 $"
-  },
-  "bryant-park": {
-   "icao": "KNYC",
-   "name": "New York/Central Park",
-   "km": 3,
-   "time": "2026-11-24T10:51:00+00:00",
-   "wx": "",
-   "label": "특이 현상 없음",
-   "snow": false,
-   "rain": false,
-   "t": 6.1,
-   "raw": "METAR KNYC 241051Z AUTO 28004KT 10SM CLR 06/M02 A3024 RMK AO2 SLP232 T00611017 $"
-  },
-  "rovaniemi-walk": {
+  "rovaniemi": {
    "icao": "EFRO",
    "name": "Rovaniemi Arpt",
    "km": 2,
-   "time": "2026-11-24T11:20:00+00:00",
+   "time": "2026-11-24T21:20:00+00:00",
    "wx": "",
    "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
-   "t": -6,
-   "raw": "METAR EFRO 241120Z AUTO 33005KT 9999 4200 BKN019 BKN038 M06/M06 Q1026"
+   "t": -8,
+   "raw": "METAR EFRO 242120Z AUTO 34005KT CAVOK M08/M09 Q1025"
   },
-  "trap-paris": {
-   "icao": "LFPB",
-   "name": "Paris/Le Bourge Arpt",
-   "km": 13,
-   "time": "2026-11-24T11:30:00+00:00",
+  "levi": {
+   "icao": "EFKT",
+   "name": "Kittilä Arpt",
+   "km": 12,
+   "time": "2026-11-24T21:20:00+00:00",
    "wx": "",
    "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
-   "t": 6,
-   "raw": "METAR LFPB 241130Z AUTO 09007KT 9999 FEW016 SCT024 06/04 Q1019"
+   "t": -7,
+   "raw": "METAR EFKT 242120Z AUTO 28004KT 260V340 CAVOK M07/M09 Q1024"
   },
-  "boyne-city": {
-   "icao": "KBFA",
-   "name": "Boyne Falls Arpt",
-   "km": 9,
-   "time": "2026-11-24T11:35:00+00:00",
+  "turku": {
+   "icao": "EFTU",
+   "name": "Turku Arpt",
+   "km": 7,
+   "time": "2026-11-24T21:20:00+00:00",
    "wx": "",
    "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
-   "t": -1,
-   "raw": "METAR KBFA 241135Z AUTO 32007KT 10SM OVC035 M01/M06 A3047 RMK AO2"
+   "t": -2,
+   "raw": "METAR EFTU 242120Z AUTO 03006KT 350V060 9999 BKN021 M02/M04 Q1024"
   },
-  "sturgis": {
-   "icao": "KSPF",
-   "name": "Spearfish/Clyde Fld",
-   "km": 24,
-   "time": "2026-11-24T11:35:00+00:00",
+  "joensuu": {
+   "icao": "EFJO",
+   "name": "Joensuu Arpt",
+   "km": 10,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR EFJO 242120Z AUTO 02008KT 330V060 9999 OVC017 M00/M03 Q1022"
+  },
+  "munich": {
+   "icao": "EDMO",
+   "name": "Oberpfaffenhofe Arpt",
+   "km": 23,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -4,
+   "raw": "METAR EDMO 242120Z AUTO 08005KT 050V110 CAVOK M04/M06 Q1018"
+  },
+  "vienna-rathaus": {
+   "icao": "LOWW",
+   "name": "Vienna Intl",
+   "km": 20,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -4,
+   "raw": "METAR LOWW 242120Z VRB02KT CAVOK M04/M07 Q1026 NOSIG"
+  },
+  "nuremberg": {
+   "icao": "EDDN",
+   "name": "Nurnberg Arpt",
+   "km": 6,
+   "time": "2026-11-24T21:20:00+00:00",
    "wx": "",
    "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
    "t": -5,
-   "raw": "METAR KSPF 241135Z AUTO 10SM SCT090 BKN110 M05/M05 A3022 RMK AO2"
+   "raw": "METAR EDDN 242120Z AUTO 08003KT CAVOK M05/M07 Q1021"
+  },
+  "dresden": {
+   "icao": "EDDC",
+   "name": "Dresden Arpt",
+   "km": 9,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -1,
+   "raw": "METAR EDDC 242120Z AUTO 10003KT 9999 BKN022 M01/M05 Q1024"
+  },
+  "cologne": {
+   "icao": "EDDK",
+   "name": "Koln-Bonn Arpt",
+   "km": 16,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR EDDK 242120Z AUTO 11006KT 070V140 CAVOK M00/M05 Q1020 NOSIG"
+  },
+  "bremen": {
+   "icao": "EDDW",
+   "name": "Bremen Arpt",
+   "km": 3,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "FZFG",
+   "label": "안개",
+   "snow": false,
+   "rain": false,
+   "t": -4,
+   "raw": "METAR EDDW 242120Z AUTO 09004KT 0600 0450 R08/0700N FZFG VV003 M04/M04 Q1025"
+  },
+  "hildesheim": {
+   "icao": "EDDV",
+   "name": "Hannover Arpt",
+   "km": 40,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "FZFG",
+   "label": "안개",
+   "snow": false,
+   "rain": false,
+   "t": -4,
+   "raw": "METAR EDDV 242120Z AUTO 07005KT 0650 0550 R09L/0900N R09R/0800N FZFG VV003 M04/M04 Q1024"
+  },
+  "sint-niklaas": {
+   "icao": "EBAW",
+   "name": "Antwerp Intl",
+   "km": 22,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -1,
+   "raw": "METAR EBAW 242120Z 08007KT CAVOK M01/M04 Q1018 NOSIG"
+  },
+  "sittard": {
+   "icao": "ETNG",
+   "name": "Geilenkirchen",
+   "km": 12,
+   "time": "2026-11-24T20:50:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR ETNG 242050Z 09012KT CAVOK M00/M04 Q1019 NOSIG"
+  },
+  "brussels": {
+   "icao": "EBBR",
+   "name": "Brussels Intl",
+   "km": 13,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -1,
+   "raw": "METAR EBBR 242120Z 09004KT 050V110 CAVOK M01/M04 Q1017 NOSIG"
+  },
+  "prague-ots": {
+   "icao": "LKKB",
+   "name": "Prague/Kbely Arpt",
+   "km": 9,
+   "time": "2026-11-24T21:00:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR LKKB 242100Z 11005KT 9999 BKN031 M00/M06 Q1024"
+  },
+  "zurich": {
+   "icao": "LSMD",
+   "name": "Dübendorf Arpt",
+   "km": 9,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR LSMD 242120Z AUTO 32003KT 9999NDV SCT014 BKN230 00/M01 Q1017 RMK"
+  },
+  "jena": {
+   "icao": "EDDE",
+   "name": "Erfurt Arpt",
+   "km": 44,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -3,
+   "raw": "METAR EDDE 242120Z AUTO 20006KT CAVOK M03/M05 Q1022"
+  },
+  "badenbaden": {
+   "icao": "EDSB",
+   "name": "Baden Arpt",
+   "km": 12,
+   "time": "2026-11-24T20:50:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -2,
+   "raw": "METAR EDSB 242050Z AUTO VRB01KT 9999 ///////// M02/M04 Q1019"
+  },
+  "munster-fr": {
+   "icao": "LFGA",
+   "name": "Colmar/Houssen Arpt",
+   "km": 18,
+   "time": "2026-11-24T21:30:00+00:00",
+   "wx": "FZFG",
+   "label": "안개",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR LFGA 242130Z AUTO VRB02KT 0600 R19/0700N FZFG VV/// M00/M01 Q1018"
+  },
+  "basel": {
+   "icao": "LFSB",
+   "name": "Basel/Euro Arpt",
+   "km": 8,
+   "time": "2026-11-24T21:30:00+00:00",
+   "wx": "BR",
+   "label": "박무",
+   "snow": false,
+   "rain": false,
+   "t": 1,
+   "raw": "METAR LFSB 242130Z AUTO 33006KT 3000 BR VV/// 01/01 Q1017 TEMPO 0500 FG VV///"
+  },
+  "luzern": {
+   "icao": "LSME",
+   "name": "Emmen Arpt",
+   "km": 5,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 4,
+   "raw": "METAR LSME 242120Z AUTO VRB02KT 9999NDV FEW011 OVC017 04/02 Q1017 RMK"
+  },
+  "stmoritz": {
+   "icao": "LSZS",
+   "name": "Samedan Arpt",
+   "km": 4,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -7,
+   "raw": "METAR LSZS 242120Z AUTO VRB01KT CAVOK M07/M08 Q1019"
+  },
+  "prague": {
+   "icao": "LKKB",
+   "name": "Prague/Kbely Arpt",
+   "km": 10,
+   "time": "2026-11-24T21:00:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR LKKB 242100Z 11005KT 9999 BKN031 M00/M06 Q1024"
+  },
+  "eger": {
+   "icao": "LHSN",
+   "name": "Szolnok",
+   "km": 87,
+   "time": "2026-11-24T21:15:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR LHSN 242115Z 24005KT 210V280 CAVOK M00/M05 Q1026 NOSIG RMK BLU"
+  },
+  "kranjska": {
+   "icao": "LOWK",
+   "name": "Klagenfurt Arpt",
+   "km": 45,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -3,
+   "raw": "METAR LOWK 242120Z AUTO VRB02KT 8000 NCD M03/M04 Q1025 TEMPO 4000 BR BKN010"
+  },
+  "oudenaarde": {
+   "icao": "LFQQ",
+   "name": "Lille/Lesquin Arpt",
+   "km": 48,
+   "time": "2026-11-24T21:30:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 0,
+   "raw": "METAR LFQQ 242130Z AUTO 06006KT CAVOK 00/M01 Q1015 NOSIG"
+  },
+  "amsterdam": {
+   "icao": "EHAM",
+   "name": "Amsterdam/Schiphol Arpt",
+   "km": 10,
+   "time": "2026-11-24T21:25:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 1,
+   "raw": "METAR EHAM 242125Z 09012KT CAVOK 01/M02 Q1020 NOSIG"
+  },
+  "groningen": {
+   "icao": "EHGG",
+   "name": "Groningen Arpt",
+   "km": 11,
+   "time": "2026-11-24T21:25:00+00:00",
+   "wx": "FZFG",
+   "label": "안개",
+   "snow": false,
+   "rain": false,
+   "t": -1,
+   "raw": "METAR EHGG 242125Z AUTO 08008KT 050V120 0650 R05/0750N FZFG VV000 M01/M01 Q1023 NOSIG"
+  },
+  "tallinn": {
+   "icao": "EETN",
+   "name": "Tallin Arpt",
+   "km": 4,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "-RA",
+   "label": "약한 비",
+   "snow": false,
+   "rain": true,
+   "t": 2,
+   "raw": "METAR EETN 242120Z 03008KT 360V070 9999 -RA SCT010 OVC014 02/00 Q1019 TEMPO 4000 SNRA BKN009"
+  },
+  "dublin": {
+   "icao": "EIDW",
+   "name": "Dublin Arpt",
+   "km": 9,
+   "time": "2026-11-24T21:00:00+00:00",
+   "wx": "-RA",
+   "label": "약한 비",
+   "snow": false,
+   "rain": true,
+   "t": 7,
+   "raw": "METAR EIDW 242100Z 31005KT 9999 -RA FEW006 07/06 Q1011 NOSIG"
+  },
+  "leavenworth": {
+   "icao": "KEAT",
+   "name": "Wenatchee/Pangborn Mem",
+   "km": 41,
+   "time": "2026-11-24T20:55:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 2.8,
+   "raw": "METAR KEAT 242055Z AUTO 00000KT 10SM BKN012 OVC018 03/02 A3014 RMK AO2 SLP215 T00280017 58016"
+  },
+  "leavenworth-kk": {
+   "icao": "KEAT",
+   "name": "Wenatchee/Pangborn Mem",
+   "km": 41,
+   "time": "2026-11-24T20:55:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 2.8,
+   "raw": "METAR KEAT 242055Z AUTO 00000KT 10SM BKN012 OVC018 03/02 A3014 RMK AO2 SLP215 T00280017 58016"
+  },
+  "jackson": {
+   "icao": "KJAC",
+   "name": "Jackson Hole Arpt",
+   "km": 15,
+   "time": "2026-11-24T19:56:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 1,
+   "raw": "METAR KJAC 241956Z 18004KT 10SM CLR 01/M04 A3034"
+  },
+  "newburyport": {
+   "icao": "KLWM",
+   "name": "Lawrence Muni",
+   "km": 23,
+   "time": "2026-11-24T20:54:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 5,
+   "raw": "METAR KLWM 242054Z 32007G15KT 10SM CLR 05/M10 A3040 RMK AO2 SLP294 T00501100 53027"
+  },
+  "whistler": {
+   "icao": "CWAE",
+   "name": "Whistler",
+   "km": 1,
+   "time": "2026-11-24T21:00:00+00:00",
+   "wx": "-RA -SN BR",
+   "label": "약한 비, 약한 눈, 박무",
+   "snow": true,
+   "rain": true,
+   "t": 0,
+   "raw": "METAR CWAE 242100Z 00000KT 2SM -RASN BR SCT006 BKN015 BKN034 OVC100 00/00 A2982 RMK SN2ST1SC2SC2ACC1 WIND EST SLP120"
+  },
+  "canmore": {
+   "icao": "CWZG",
+   "name": "Banff ",
+   "km": 18,
+   "time": "2026-11-24T21:00:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -1,
+   "raw": "METAR CWZG 242100Z AUTO 22008G17KT M01/M07 RMK AO1 SOG 02 6021 PK WND 24018/2003 SLP203 T10101069"
+  },
+  "collingwood": {
+   "icao": "CXET",
+   "name": "Egbert CS",
+   "km": 46,
+   "time": "2026-11-24T21:00:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -1.4,
+   "raw": "METAR CXET 242100Z AUTO 34006KT M01/M07 RMK AO1 SOG 07 3006 SLP348 T10141067"
+  },
+  "nyc": {
+   "icao": "KNYC",
+   "name": "New York/Central Park",
+   "km": 3,
+   "time": "2026-11-24T20:51:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 7.8,
+   "raw": "METAR KNYC 242051Z AUTO 10SM CLR 08/M08 A3044 RMK AO2 SLP300 T00781083 53022 $"
+  },
+  "bryant-park": {
+   "icao": "KNYC",
+   "name": "New York/Central Park",
+   "km": 3,
+   "time": "2026-11-24T20:51:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 7.8,
+   "raw": "METAR KNYC 242051Z AUTO 10SM CLR 08/M08 A3044 RMK AO2 SLP300 T00781083 53022 $"
+  },
+  "rovaniemi-walk": {
+   "icao": "EFRO",
+   "name": "Rovaniemi Arpt",
+   "km": 2,
+   "time": "2026-11-24T21:20:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": -8,
+   "raw": "METAR EFRO 242120Z AUTO 34005KT CAVOK M08/M09 Q1025"
+  },
+  "trap-paris": {
+   "icao": "LFPB",
+   "name": "Paris/Le Bourge Arpt",
+   "km": 13,
+   "time": "2026-11-24T21:30:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 4,
+   "raw": "METAR LFPB 242130Z AUTO 06005KT 9999 SCT012 SCT220 OVC230 04/02 Q1013 NOSIG"
+  },
+  "boyne-city": {
+   "icao": "KBFA",
+   "name": "Boyne Falls Arpt",
+   "km": 9,
+   "time": "2026-11-24T21:15:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 2,
+   "raw": "METAR KBFA 242115Z AUTO VRB04KT 10SM OVC032 02/M04 A3053 RMK AO2"
+  },
+  "sturgis": {
+   "icao": "KSPF",
+   "name": "Spearfish/Clyde Fld",
+   "km": 24,
+   "time": "2026-11-24T21:15:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
+   "snow": false,
+   "rain": false,
+   "t": 6,
+   "raw": "METAR KSPF 242115Z AUTO 00000KT 10SM CLR 06/M02 A3016 RMK AO2"
   },
   "gramado": {
    "icao": "SBCX",
    "name": "Campo dos Bugres/Cai",
    "km": 37,
-   "time": "2026-11-24T11:00:00+00:00",
-   "wx": "TS",
-   "label": "TS",
+   "time": "2026-11-24T21:00:00+00:00",
+   "wx": "",
+   "label": "특이 현상 없음",
    "snow": false,
    "rain": false,
    "t": null,
-   "raw": "METAR SBCX 241100Z 12003KT 090V170 9999 TS FEW005 BKN025 //////CB 21/// Q1011"
+   "raw": "METAR SBCX 242100Z 06006KT 9999 FEW004 BKN035 BKN080 19/// Q1009"
   }
  },
  "thumbs": {
   "vienna-rathaus": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
-   "changes": 20,
-   "hash": "0b5c3dc1a81d",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 21,
+   "hash": "3ab9031ab341",
    "url": "https://cams.tourispo.com/images/ecu/content/c_webcam/wien-rathausplatz_n181769-70248-0_l.jpg",
-   "changedAt": "2026-11-24T11:44:28+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"6b0577d5-19f4f\"",
+   "etag": "\"6b05e81b-1c90e\"",
    "wide": true,
-   "takenAt": "2026-11-24T11:41:09+00:00"
+   "takenAt": "2026-11-24T19:40:11+00:00"
   },
   "dresden": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
-   "changes": 20,
-   "hash": "632f23b679d8",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 21,
+   "hash": "c02dbc4cd7f6",
    "url": "https://cams.tourispo.com/images/ecu/content/c_webcam/dresden-frauenkirche-und-neumarkt_n4797716-76756-0_l.jpg",
-   "changedAt": "2026-11-24T11:44:28+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"6b057822-2dd26\"",
+   "etag": "\"6b05e866-162c4\"",
    "wide": true,
-   "takenAt": "2026-11-24T11:42:26+00:00"
+   "takenAt": "2026-11-24T19:41:26+00:00"
   },
   "jena": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
    "changes": 0,
    "hash": "26853482ea7e",
    "url": "https://i.ytimg.com/vi/0UbGQoCOlsY/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:18:22+00:00",
-   "same": 24,
+   "same": 25,
    "etag": "\"1785749003\"",
    "wide": true,
    "static": true
   },
   "eger": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "580eaaf77a63",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
+   "changes": 22,
+   "hash": "b9c9b7af9ef0",
    "url": "https://i.ytimg.com/vi/HKVZx5EdnIs/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:21+00:00",
    "same": 0,
-   "etag": "\"66044\"",
+   "etag": "\"66162\"",
    "wide": true,
    "static": false
   },
   "leavenworth": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 19,
-   "hash": "b6c54477e8d0",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
+   "changes": 20,
+   "hash": "370ff2b6eaaa",
    "url": "https://i.ytimg.com/vi/XjhxRZEm638/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:22+00:00",
    "same": 0,
-   "etag": "\"236930\"",
+   "etag": "\"237049\"",
    "wide": true,
    "static": false
   },
   "leavenworth-kk": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
-   "changes": 19,
-   "hash": "7a3a377da03e",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
+   "changes": 20,
+   "hash": "5893cb25c436",
    "url": "https://i.ytimg.com/vi/TmtVbezZaqg/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:30+00:00",
+   "changedAt": "2026-11-24T21:34:22+00:00",
    "same": 0,
-   "etag": "\"238336\"",
+   "etag": "\"238453\"",
    "wide": true,
    "static": false
   },
   "rovaniemi-walk": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
    "changes": 0,
    "hash": "a43a510d4fdd",
    "url": "https://i.ytimg.com/vi/quAzBLGq43M/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:18:23+00:00",
-   "same": 24,
+   "same": 25,
    "etag": "\"1089\"",
    "wide": true,
    "static": true
   },
   "seoul-gyeongbok": {
-   "fetchedAt": "2026-11-24T11:44:27+00:00",
+   "fetchedAt": "2026-11-24T21:34:18+00:00",
    "changes": 0,
    "hash": "a374d4341fd2",
    "url": "https://i.ytimg.com/vi/IcTMxC_k57A/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:47+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1792570822\"",
    "wide": true,
    "static": true
   },
   "rovaniemi": {
-   "fetchedAt": "2026-11-24T11:44:27+00:00",
-   "changes": 21,
-   "hash": "6f44d3d3dca1",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
+   "changes": 22,
+   "hash": "e524052ad403",
    "url": "https://i.ytimg.com/vi/Cp4RRAEgpeU/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:27+00:00",
+   "changedAt": "2026-11-24T21:34:19+00:00",
    "same": 0,
-   "etag": "\"238629\"",
+   "etag": "\"238750\"",
    "wide": true,
    "static": false
   },
   "sapporo-odori": {
-   "fetchedAt": "2026-11-24T11:44:27+00:00",
+   "fetchedAt": "2026-11-24T21:34:18+00:00",
    "changes": 0,
    "hash": "a178ee7ba6c6",
    "url": "https://i.ytimg.com/vi/RBHsITnIoI0/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:47+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1756715643\"",
    "wide": true,
    "static": true
   },
   "turku": {
-   "fetchedAt": "2026-11-24T11:44:27+00:00",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
    "changes": 0,
    "hash": "9d91232e53b3",
    "url": "https://i.ytimg.com/vi/KLQLeZ9vjt4/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:47+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1773149437\"",
    "wide": true,
    "static": true
   },
   "kusatsu": {
-   "fetchedAt": "2026-11-24T11:44:27+00:00",
-   "changes": 21,
-   "hash": "be986e3441c8",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
+   "changes": 22,
+   "hash": "3aa0760bcb59",
    "url": "https://i.ytimg.com/vi/caahuMvVxsw/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:27+00:00",
+   "changedAt": "2026-11-24T21:34:19+00:00",
    "same": 0,
-   "etag": "\"7888\"",
+   "etag": "\"8008\"",
    "wide": true,
    "static": false
   },
   "joensuu": {
-   "fetchedAt": "2026-11-24T11:44:27+00:00",
-   "changes": 21,
-   "hash": "cb6d32aa7d0a",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
+   "changes": 22,
+   "hash": "d94cfb7dea5c",
    "url": "https://i.ytimg.com/vi/yA4aFD0AjDs/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:27+00:00",
+   "changedAt": "2026-11-24T21:34:19+00:00",
    "same": 0,
-   "etag": "\"241556\"",
+   "etag": "\"241674\"",
    "wide": true,
    "static": false
   },
   "levi": {
-   "fetchedAt": "2026-11-24T11:44:27+00:00",
-   "changes": 21,
-   "hash": "96f8430b6566",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
+   "changes": 22,
+   "hash": "7e6db65a299e",
    "url": "https://i.ytimg.com/vi/EmoTKMm5sDI/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:27+00:00",
+   "changedAt": "2026-11-24T21:34:19+00:00",
    "same": 0,
-   "etag": "\"124725\"",
+   "etag": "\"124845\"",
    "wide": true,
    "static": false
   },
   "cologne": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
    "changes": 0,
    "hash": "1550ae7cda0e",
    "url": "https://i.ytimg.com/vi/u3pwYYYeDKE/hqdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:48+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1793310490\"",
    "wide": false,
    "static": true
   },
   "bremen": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
    "changes": 0,
    "hash": "84cd48ca7a6d",
    "url": "https://i.ytimg.com/vi/SsyiWrkUjy4/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:48+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1756461742\"",
    "wide": true,
    "static": true
   },
   "munich": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
-   "changes": 21,
-   "hash": "dff1e8aa55fa",
+   "fetchedAt": "2026-11-24T21:34:19+00:00",
+   "changes": 22,
+   "hash": "4f2c28bd6add",
    "url": "https://i.ytimg.com/vi/VAS9A0LRGHA/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:28+00:00",
+   "changedAt": "2026-11-24T21:34:19+00:00",
    "same": 0,
-   "etag": "\"12466\"",
+   "etag": "\"12585\"",
    "wide": true,
    "static": false
   },
   "hildesheim": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
-   "changes": 21,
-   "hash": "10af27483648",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 22,
+   "hash": "c6afe743aefc",
    "url": "https://i.ytimg.com/vi/671yJ4jELFg/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:28+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"61585\"",
+   "etag": "\"61708\"",
    "wide": true,
    "static": false
   },
   "sint-niklaas": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
-   "changes": 21,
-   "hash": "e41aaea33d96",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 22,
+   "hash": "947ef83585f1",
    "url": "https://i.ytimg.com/vi/7gOLLJGudNo/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:28+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"143213\"",
+   "etag": "\"143332\"",
    "wide": true,
    "static": false
   },
   "sittard": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
-   "changes": 21,
-   "hash": "011ab5c786df",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 22,
+   "hash": "e3ae3d1c2454",
    "url": "https://i.ytimg.com/vi/GvPyyntKyCY/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:28+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"157789\"",
+   "etag": "\"158131\"",
    "wide": true,
    "static": false
   },
   "badenbaden": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "7d84ea4256f8",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
+   "changes": 22,
+   "hash": "3d9cf2f83d97",
    "url": "https://i.ytimg.com/vi/JBKs0WYlbHQ/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:21+00:00",
    "same": 0,
-   "etag": "\"238261\"",
+   "etag": "\"238381\"",
    "wide": true,
    "static": false
   },
   "munster-fr": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "fe7d80577e50",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 22,
+   "hash": "c235cba8293a",
    "url": "https://i.ytimg.com/vi/Uf4RBbIvbFQ/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"13019\"",
+   "etag": "\"13092\"",
    "wide": true,
    "static": false
   },
   "luzern": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
    "changes": 0,
    "hash": "dd69514ebe86",
    "url": "https://i.ytimg.com/vi/QIt1FaDMnQc/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:48+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1686492888\"",
    "wide": true,
    "static": true
   },
   "prague": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "523e1e95a5ef",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
+   "changes": 22,
+   "hash": "d592a89a6da0",
    "url": "https://i.ytimg.com/vi/kvYMIaXclIE/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:21+00:00",
    "same": 0,
-   "etag": "\"15876\"",
+   "etag": "\"15997\"",
    "wide": true,
    "static": false
   },
   "stmoritz": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "2674d7cfaa3a",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
+   "changes": 22,
+   "hash": "fb899868df14",
    "url": "https://i.ytimg.com/vi/9b5evZuY47c/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:21+00:00",
    "same": 0,
-   "etag": "\"34085\"",
+   "etag": "\"34203\"",
    "wide": true,
    "static": false
   },
   "kranjska": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "34b26e8271f0",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
+   "changes": 22,
+   "hash": "4ef0cb28788e",
    "url": "https://i.ytimg.com/vi/-Huu1iNTpfk/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:21+00:00",
    "same": 0,
-   "etag": "\"189356\"",
+   "etag": "\"189475\"",
    "wide": true,
    "static": false
   },
   "basel": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "bfda2522bea9",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
+   "changes": 22,
+   "hash": "45d2220b5e50",
    "url": "https://i.ytimg.com/vi/jtLh8BdmHUU/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:21+00:00",
    "same": 0,
-   "etag": "\"239618\"",
+   "etag": "\"239739\"",
    "wide": true,
    "static": false
   },
   "amsterdam": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
    "changes": 0,
    "hash": "0dc2f0a9b7ff",
    "url": "https://i.ytimg.com/vi/Gd9d4q6WvUY/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:48+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1704987713\"",
    "wide": true,
    "static": true
   },
   "groningen": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
    "changes": 0,
    "hash": "128e1359d5a9",
    "url": "https://i.ytimg.com/vi/ZjfFGJlkjmE/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:48+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1784318104\"",
    "wide": true,
    "static": true
   },
   "tallinn": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
    "changes": 0,
    "hash": "578d6ce3bdfd",
    "url": "https://i.ytimg.com/vi/VhVgZi2lGv0/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:48+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1700651781\"",
    "wide": true,
    "static": true
   },
   "dublin": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
    "changes": 0,
    "hash": "83fa256cb87b",
    "url": "https://i.ytimg.com/vi/3nyPER2kzqk/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:48+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1772280392\"",
    "wide": true,
    "static": true
   },
   "oudenaarde": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 21,
-   "hash": "222486851ed1",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
+   "changes": 22,
+   "hash": "f42af3d6533c",
    "url": "https://i.ytimg.com/vi/TTrzSdVej30/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:22+00:00",
    "same": 0,
-   "etag": "\"239794\"",
+   "etag": "\"239913\"",
    "wide": true,
    "static": false
   },
   "jackson": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
+   "fetchedAt": "2026-11-24T21:34:21+00:00",
    "changes": 0,
    "hash": "9167eda1197a",
    "url": "https://i.ytimg.com/vi/1EiC9bvVGnk/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:49+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1767759929\"",
    "wide": true,
    "static": true
   },
   "whistler": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
-   "changes": 21,
-   "hash": "e783b3b2e0fb",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
+   "changes": 22,
+   "hash": "a2a9f83b0392",
    "url": "https://i.ytimg.com/vi/IEhDUXECe_k/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:30+00:00",
+   "changedAt": "2026-11-24T21:34:22+00:00",
    "same": 0,
-   "etag": "\"239404\"",
+   "etag": "\"239521\"",
    "wide": true,
    "static": false
   },
   "canmore": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
-   "changes": 21,
-   "hash": "7b77fe78c61e",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
+   "changes": 22,
+   "hash": "e4c179a8ca71",
    "url": "https://i.ytimg.com/vi/_0wPODlF9wU/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:30+00:00",
+   "changedAt": "2026-11-24T21:34:22+00:00",
    "same": 0,
-   "etag": "\"239426\"",
+   "etag": "\"239544\"",
    "wide": true,
    "static": false
   },
   "nyc": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
    "changes": 0,
    "hash": "4e55c749760f",
    "url": "https://i.ytimg.com/vi/VGnFLdQW39A/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:49+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1759177136\"",
    "wide": true,
    "static": true
   },
   "newburyport": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
-   "changes": 21,
-   "hash": "b3047bb13ab2",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
+   "changes": 22,
+   "hash": "d04297a81b58",
    "url": "https://i.ytimg.com/vi/VsuSbXPN93o/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:30+00:00",
+   "changedAt": "2026-11-24T21:34:22+00:00",
    "same": 0,
-   "etag": "\"233942\"",
+   "etag": "\"234059\"",
    "wide": true,
    "static": false
   },
   "bryant-park": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
    "changes": 0,
    "hash": "8c225ec085b8",
    "url": "https://i.ytimg.com/vi/huYIgYbYQgM/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:49+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1793195658\"",
    "wide": true,
    "static": true
   },
   "worldcam-relay": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
    "changes": 0,
    "hash": "afa2837eaeaf",
    "url": "https://i.ytimg.com/vi/HuP9HDzVJi8/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:49+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1792365328\"",
    "wide": true,
    "static": true
   },
   "collingwood": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
-   "changes": 21,
-   "hash": "279679379bc5",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
+   "changes": 22,
+   "hash": "c4c29077f76f",
    "url": "https://i.ytimg.com/vi/EPKWu223XEg/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:30+00:00",
+   "changedAt": "2026-11-24T21:34:22+00:00",
    "same": 0,
-   "etag": "\"243563\"",
+   "etag": "\"243681\"",
    "wide": true,
    "static": false
   },
   "trap-paris": {
-   "fetchedAt": "2026-11-24T11:44:30+00:00",
+   "fetchedAt": "2026-11-24T21:34:22+00:00",
    "changes": 0,
    "hash": "84fe4aec9574",
    "url": "https://i.ytimg.com/vi/lBmk_v-mLp4/maxresdefault_live.jpg",
    "changedAt": "2026-11-18T06:50:49+00:00",
-   "same": 21,
+   "same": 22,
    "etag": "\"1764349709\"",
    "wide": true,
    "static": true
   },
   "boyne-city": {
-   "fetchedAt": "2026-11-24T11:44:29+00:00",
-   "changes": 7,
-   "hash": "0271dca257b9",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 8,
+   "hash": "868f694d7227",
    "url": "https://i.ytimg.com/vi/44PAH-xI-uM/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:29+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"98065\"",
+   "etag": "\"98184\"",
    "wide": true,
    "static": false
   },
   "sturgis": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
-   "changes": 7,
-   "hash": "4e6a3b3e6418",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
+   "changes": 8,
+   "hash": "56ea57b9e22e",
    "url": "https://i.ytimg.com/vi/uu82CI54eJU/maxresdefault_live.jpg",
-   "changedAt": "2026-11-24T11:44:28+00:00",
+   "changedAt": "2026-11-24T21:34:20+00:00",
    "same": 0,
-   "etag": "\"286972\"",
+   "etag": "\"287089\"",
    "wide": true,
    "static": false
   },
   "gramado": {
-   "fetchedAt": "2026-11-24T11:44:28+00:00",
+   "fetchedAt": "2026-11-24T21:34:20+00:00",
    "changes": 0,
    "hash": "f7ef39f79218",
    "url": "https://i.ytimg.com/vi/0tMTEejJwhc/hqdefault_live.jpg",
    "changedAt": "2026-11-22T10:17:07+00:00",
-   "same": 7,
+   "same": 8,
    "etag": "\"1791903182\"",
    "wide": false,
    "static": true
@@ -2251,8 +2251,8 @@
   "kusatsu": {
    "level": "none",
    "text": "",
-   "cover": null,
-   "depthCm": 0,
+   "cover": "model",
+   "depthCm": 1.0,
    "model": false,
    "obs": null,
    "screen": null,
@@ -2292,7 +2292,7 @@
    "level": "none",
    "text": "",
    "cover": "model",
-   "depthCm": 5.0,
+   "depthCm": 4.0,
    "model": false,
    "obs": false,
    "screen": null,
@@ -2472,7 +2472,7 @@
    "level": "none",
    "text": "",
    "cover": "model",
-   "depthCm": 16.0,
+   "depthCm": 14.0,
    "model": false,
    "obs": false,
    "screen": null,
@@ -2581,8 +2581,8 @@
   "jackson": {
    "level": "none",
    "text": "",
-   "cover": null,
-   "depthCm": 0,
+   "cover": "model",
+   "depthCm": 2.0,
    "model": false,
    "obs": null,
    "screen": null,
@@ -2599,12 +2599,12 @@
    "eye": null
   },
   "whistler": {
-   "level": "none",
-   "text": "",
-   "cover": null,
-   "depthCm": 0,
+   "level": "likely",
+   "text": "공항(CWAE, 1km)에서 눈을 관측했어요",
+   "cover": "model",
+   "depthCm": 1.0,
    "model": false,
-   "obs": null,
+   "obs": true,
    "screen": null,
    "eye": null
   },
@@ -2612,7 +2612,7 @@
    "level": "none",
    "text": "",
    "cover": "model",
-   "depthCm": 2.0,
+   "depthCm": 1.0,
    "model": false,
    "obs": false,
    "screen": null,
@@ -2671,8 +2671,8 @@
   "boyne-city": {
    "level": "none",
    "text": "",
-   "cover": "model",
-   "depthCm": 1.0,
+   "cover": null,
+   "depthCm": 0,
    "model": false,
    "obs": false,
    "screen": null,
@@ -2700,6 +2700,14 @@
   }
  },
  "events": [
+  {
+   "camId": "whistler",
+   "city": "휘슬러",
+   "at": "2026-11-24T21:34:22+00:00",
+   "from": "none",
+   "level": "likely",
+   "text": "공항(CWAE, 1km)에서 눈을 관측했어요"
+  },
   {
    "camId": "tallinn",
    "city": "탈린",
@@ -3011,23 +3019,11 @@
    "from": "none",
    "level": "likely",
    "text": "공항(EETN, 4km)에서 눈을 관측했어요"
-  },
-  {
-   "camId": "stmoritz",
-   "city": "생모리츠",
-   "at": "2026-11-21T08:14:30+00:00",
-   "from": "none",
-   "level": "confirmed",
-   "text": "예보·공항 관측에서 모두 눈이에요"
   }
  ],
  "blockedUntil": 0.0,
  "weatherNote": {
-  "at": "2026-11-24T11:44:27+00:00",
-  "errors": [
-   "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
-   "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
-   "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>"
-  ]
+  "at": "2026-11-24T21:34:18+00:00",
+  "errors": []
  }
 }
