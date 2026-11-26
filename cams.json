@@ -423,8 +423,9 @@
   "place": "타운 스퀘어 (엘크뿔 아치)",
   "lat": 43.4799,
   "lon": -110.7624,
-  "videoId": "1EiC9bvVGnk",
-  "channelId": "UCEpDjqeFIGTqHwk-uULx72Q",
+  "videoId": "DoUOrTJbIu4",
+  "channelId": null,
+  "customThumb": true,
   "square": true
  },
  {
